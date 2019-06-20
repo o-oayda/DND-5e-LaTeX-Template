@@ -89,6 +89,36 @@
 \renewcommand\p@SubArea{\arabic{Area}}
 \renewcommand\theSubArea{\alph{SubArea}}
 
+% Alternate Map Area format with a single number (as per some modules).
+% Use regular "subsection" for labelling different levels without resetting
+% area numbers.
+\newcommand{\NumberedAreaLabel@Prefix}{numberedarea}
+\newcommand{\SetNumberedAreaLabelPrefix}[1]{%
+  \renewcommand{\NumberedAreaLabel@Prefix}{#1}}
+
+\newcounter{NumberedArea}
+\newcommand\ResetNumberedAreas{%
+  \setcounter{NumberedArea}{0}}
+
+\NewDocumentCommand\numberedarea{mo}{%
+  \refstepcounter{NumberedArea}%
+  \IfNoValueTF{#2}%
+    {\label{\NumberedAreaLabel@Prefix:#1}}%
+    {\label{\NumberedAreaLabel@Prefix:#2}}%
+  \subsection{#1}%
+}
+
+% defines the numbered sub-areas
+\newcounter{NumberedSubArea}[NumberedArea]
+
+\NewDocumentCommand\numberedsubarea{mo}{%
+  \refstepcounter{NumberedSubArea}%
+  \IfNoValueTF{#2}%
+    {\label{\NumberedAreaLabel@Prefix:#1}}%
+    {\label{\NumberedAreaLabel@Prefix:#2}}%
+  \subsubsection{\arabic{NumberedSubArea}. #1}%
+}
+
 \newcounter{DetailArea}[subsection]
 \newcommand{\DetailArea@Prefix}{}
 \newcommand{\SetDetailAreaPrefix}[1]{\renewcommand{\DetailArea@Prefix}
