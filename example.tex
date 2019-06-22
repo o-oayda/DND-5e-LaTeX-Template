@@ -21,6 +21,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 \usepackage{listings}
+\usepackage{lmodern} % Scalable font
+\usepackage{lettrine} % For the drop cap
 
 \lstset{%
   basicstyle=\ttfamily,
@@ -36,6 +38,7 @@
 \chapter{Chapter 1: The Dark \LaTeX}
 
 \section{Main Section}
+\lettrine[lines=5,findent=0pt,nindent=0pt]{L}{}\textsc{orem ipsum dolor sit amet druid}
 \lipsum[2] % filler text
 
 \begin{quotebox}
