@@ -31,6 +31,12 @@
 \renewcommand*{\headrulewidth}{0pt} % no rule for header
 \renewcommand*{\footrulewidth}{0pt} % no rule for footer
 
+% Define option for overriding the background "paper" image.
+% TODO: Work out how to default this value, so that if the document doesn't explictly
+%       provide one, it will still compile.
+\def\paperimage#1{\def\@paperimage{#1}}
+\newcommand{\printpaperimage}{\@paperimage}
+
 \fancyhf {} % clear all headers and footers
 
 % Header is used to include the page background
@@ -38,7 +44,7 @@
   \bool_if:NT \l__dnd_show_background_bool
     {
     \begin{tikzpicture}[remember~picture,overlay]
-      \node[inner~sep=0pt] at (current~page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/paper}};
+      \node[inner~sep=0pt] at (current~page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\printpaperimage}};
     \end{tikzpicture}
     }
 }
