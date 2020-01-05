@@ -175,6 +175,34 @@
 \renewcommand\p@SubArea{\arabic{Area}}
 \renewcommand\theSubArea{\alph{SubArea}}
 
+% Alternate Map Area format, area numbers prefixed with a letter (as per some modules).
+\newcommand{\PrefixedAreaLabel@Prefix}{prefixedarea}
+\newcommand{\SetPrefixedAreaLabelPrefix}[1]{%
+  \renewcommand{\PrefixedAreaLabel@Prefix}{#1}}
+
+\newcounter{PrefixedArea}
+\newcommand\ResetPrefixedAreas{%
+  \setcounter{PrefixedArea}{0}}
+
+\newcommand{\prefixedareaprefix}{}
+\newcommand{\SetPrefixedAreaPrefix}[1]{%
+  \renewcommand{\prefixedareaprefix}{#1}}
+
+% The character(s) to use as a prefix is mandatory.
+\NewDocumentCommand\prefixedarea{mm}{%
+  \refstepcounter{PrefixedArea}%
+  {\label{\PrefixedAreaLabel@Prefix:#1}}%
+  \SetPrefixedAreaPrefix{#2}%
+  \subsection{#1}%
+}
+
+\newcounter{PrefixedSubArea}[PrefixedArea]
+
+\NewDocumentCommand\prefixedsubarea{m}{%
+  \refstepcounter{PrefixedSubArea}%
+  \subsubsection{\prefixedareaprefix\arabic{PrefixedSubArea}. #1}%
+}
+
 % Alternate Map Area format with a single number (as per some modules).
 % Use regular "subsection" for labelling different levels without resetting
 % area numbers.

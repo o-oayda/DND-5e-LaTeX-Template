@@ -115,6 +115,47 @@ This ditch has a board spanning it.
 \DndSubArea{Entrance}
 A five-foot hole reveals the dirt floor illuminated by a hole in the roof.
 
+\section{Alternate Map Region Styles}
+Published modules sometimes use plain numbers for locations, sometimes they
+prefix a character to the front of the numbers. The following options can be
+used to display in these forms:
+
+\numberedarea{Numbered Dungeon}
+Areas in the Numbered Dungeon have sequential numbers. This is done using
+the following commands:
+
+\begin{verbatim}
+\numberedarea{Numbered Dungeon}
+\numberedsubarea{Entry}
+\numberedsubarea{Trap}
+\numberedsubarea{Fight}
+\numberedsubarea{Exit}
+\end{verbatim}
+
+\numberedsubarea{Entry}
+\numberedsubarea{Trap}
+\numberedsubarea{Fight}
+\numberedsubarea{Exit}
+
+\prefixedarea{Ace Dungeon}{A}
+Areas in the Ace Dungeon are prefixed with `\prefixedareaprefix'.
+This is done using the following commands:
+
+\begin{verbatim}
+\prefixedarea{Ace Dungeon}{A}
+\prefixedsubarea{Entry}
+\prefixedsubarea{Exit}
+\end{verbatim}
+
+\prefixedsubarea{Entry}
+\prefixedsubarea{Exit}
+
+\prefixedarea{The Fantastic Zoo}{Z}
+Areas in the Fantastic Zoo are prefixed with `\prefixedareaprefix'.
+
+\prefixedsubarea{Entry}
+\prefixedsubarea{Exit}
+
 \section{Text Boxes}
 
 The module has three environments for setting text apart so that it is drawn to the reader's attention. |DndReadAloud| is used for text that a game master would read aloud.
