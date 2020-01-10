@@ -32,10 +32,11 @@
 \renewcommand*{\footrulewidth}{0pt} % no rule for footer
 
 % Define option for overriding the background "paper" image.
-% TODO: Work out how to default this value, so that if the document doesn't explictly
-%       provide one, it will still compile.
-\def\paperimage#1{\def\@paperimage{#1}}
-\newcommand{\printpaperimage}{\@paperimage}
+\newcommand{\paperimage}{img/paper}
+\newcommand{\SetPaperImage}[1]{%
+  \renewcommand{\paperimage}{#1}}
+
+\newcommand{\printpaperimage}{\paperimage}
 
 \fancyhf {} % clear all headers and footers
 
