@@ -90,20 +90,9 @@
 
 }
 
-\ExplSyntaxOff
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Special command for magic items, traps, and the like.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Old interface
-\newcommand{\subtitlesection}[2]{%
-  \subsubsection{#1}%
-  \textit{#2}
-  \par\vspace{3pt plus 1pt minus 1pt}\noindent\ignorespaces}
-
-\ExplSyntaxOn
-
-% New interface
 \NewDocumentCommand {\DndItemHeader} { m m }
   {
     \subsubsection {#1}
@@ -140,105 +129,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Map Areas and their References
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\ExplSyntaxOff % Old interface
-
-% Labelling helpers
-\newcommand{\AreaLabel@Prefix}{area}
-\newcommand{\SetAreaLabelPrefix}[1]{%
-\renewcommand{\AreaLabel@Prefix}{#1}}
-
-\newcounter{Area}
-\newcommand\ResetAreas{%
-\setcounter{Area}{0}}
-
-\NewDocumentCommand\area{mo}{%
-  \refstepcounter{Area}%
-  \IfNoValueTF{#2}%
-    {\label{\AreaLabel@Prefix:#1}}%
-    {\label{\AreaLabel@Prefix:#2}}%
-  \subsection{\arabic{Area}. #1}%
-}
-
-% defines sub-areas, like '5a', '5b'
-\newcounter{SubArea}[Area]
-
-\NewDocumentCommand\subarea{mo}{%
-  \refstepcounter{SubArea}%
-  \IfNoValueTF{#2}%
-    {\label{\AreaLabel@Prefix:#1}}%
-    {\label{\AreaLabel@Prefix:#2}}%
-  \subsubsection{\arabic{Area}\alph{SubArea}. #1}%
-}
-
-% sub area references should be '5a', '5b', not '1', '2'
-\renewcommand\p@SubArea{\arabic{Area}}
-\renewcommand\theSubArea{\alph{SubArea}}
-
-% Alternate Map Area format, area numbers prefixed with a letter (as per some modules).
-\newcommand{\PrefixedAreaLabel@Prefix}{prefixedarea}
-\newcommand{\SetPrefixedAreaLabelPrefix}[1]{%
-  \renewcommand{\PrefixedAreaLabel@Prefix}{#1}}
-
-\newcounter{PrefixedArea}
-\newcommand\ResetPrefixedAreas{%
-  \setcounter{PrefixedArea}{0}}
-
-\newcommand{\prefixedareaprefix}{}
-\newcommand{\SetPrefixedAreaPrefix}[1]{%
-  \renewcommand{\prefixedareaprefix}{#1}}
-
-% The character(s) to use as a prefix is mandatory.
-\NewDocumentCommand\prefixedarea{mm}{%
-  \refstepcounter{PrefixedArea}%
-  {\label{\PrefixedAreaLabel@Prefix:#1}}%
-  \SetPrefixedAreaPrefix{#2}%
-  \subsection{#1}%
-}
-
-\newcounter{PrefixedSubArea}[PrefixedArea]
-
-\NewDocumentCommand\prefixedsubarea{m}{%
-  \refstepcounter{PrefixedSubArea}%
-  \subsubsection{\prefixedareaprefix\arabic{PrefixedSubArea}. #1}%
-}
-
-% Alternate Map Area format with a single number (as per some modules).
-% Use regular "subsection" for labelling different levels without resetting
-% area numbers.
-\newcommand{\NumberedAreaLabel@Prefix}{numberedarea}
-\newcommand{\SetNumberedAreaLabelPrefix}[1]{%
-  \renewcommand{\NumberedAreaLabel@Prefix}{#1}}
-
-\newcounter{NumberedArea}
-\newcommand\ResetNumberedAreas{%
-  \setcounter{NumberedArea}{0}}
-
-\NewDocumentCommand\numberedarea{mo}{%
-  \refstepcounter{NumberedArea}%
-  \IfNoValueTF{#2}%
-    {\label{\NumberedAreaLabel@Prefix:#1}}%
-    {\label{\NumberedAreaLabel@Prefix:#2}}%
-  \subsection{#1}%
-}
-
-% defines the numbered sub-areas
-\newcounter{NumberedSubArea}[NumberedArea]
-
-\NewDocumentCommand\numberedsubarea{mo}{%
-  \refstepcounter{NumberedSubArea}%
-  \IfNoValueTF{#2}%
-    {\label{\NumberedAreaLabel@Prefix:#1}}%
-    {\label{\NumberedAreaLabel@Prefix:#2}}%
-  \subsubsection{\arabic{NumberedSubArea}. #1}%
-}
-
-\newcounter{DetailArea}[subsection]
-\newcommand{\DetailArea@Prefix}{}
-\newcommand{\SetDetailAreaPrefix}[1]{\renewcommand{\DetailArea@Prefix}
-      {#1--\arabic{DetailArea}\par\expandafter\ignorespaces\noindent}}
-
-\ExplSyntaxOn % New interface
 
 \tl_new:N \l__dnd_area_num_depth_tl
 
@@ -331,3 +221,64 @@
   }
 
 \ExplSyntaxOff
+
+% Alternate Map Area format, area numbers prefixed with a letter (as per some modules).
+\newcommand{\PrefixedAreaLabel@Prefix}{prefixedarea}
+\newcommand{\SetPrefixedAreaLabelPrefix}[1]{%
+  \renewcommand{\PrefixedAreaLabel@Prefix}{#1}}
+
+\newcounter{PrefixedArea}
+\newcommand\ResetPrefixedAreas{%
+  \setcounter{PrefixedArea}{0}}
+
+\newcommand{\prefixedareaprefix}{}
+\newcommand{\SetPrefixedAreaPrefix}[1]{%
+  \renewcommand{\prefixedareaprefix}{#1}}
+
+% The character(s) to use as a prefix is mandatory.
+\NewDocumentCommand\prefixedarea{mm}{%
+  \refstepcounter{PrefixedArea}%
+  {\label{\PrefixedAreaLabel@Prefix:#1}}%
+  \SetPrefixedAreaPrefix{#2}%
+  \subsection{#1}%
+}
+
+\newcounter{PrefixedSubArea}[PrefixedArea]
+
+\NewDocumentCommand\prefixedsubarea{m}{%
+  \refstepcounter{PrefixedSubArea}%
+  \subsubsection{\prefixedareaprefix\arabic{PrefixedSubArea}. #1}%
+}
+
+% Alternate Map Area format with a single number (as per some modules).
+% Use regular "subsection" for labelling different levels without resetting
+% area numbers.
+\newcommand{\NumberedAreaLabel@Prefix}{numberedarea}
+\newcommand{\SetNumberedAreaLabelPrefix}[1]{%
+  \renewcommand{\NumberedAreaLabel@Prefix}{#1}}
+
+\newcounter{NumberedArea}
+\newcommand\ResetNumberedAreas{%
+  \setcounter{NumberedArea}{0}}
+
+\NewDocumentCommand\numberedarea{mo}{%
+  \refstepcounter{NumberedArea}%
+  \IfNoValueTF{#2}%
+    {\label{\NumberedAreaLabel@Prefix:#1}}%
+    {\label{\NumberedAreaLabel@Prefix:#2}}%
+  \subsection{#1}%
+}
+
+% defines the numbered sub-areas
+\newcounter{NumberedSubArea}[NumberedArea]
+
+\NewDocumentCommand\numberedsubarea{mo}{%
+  \refstepcounter{NumberedSubArea}%
+  \IfNoValueTF{#2}%
+    {\label{\NumberedAreaLabel@Prefix:#1}}%
+    {\label{\NumberedAreaLabel@Prefix:#2}}%
+  \subsubsection{\arabic{NumberedSubArea}. #1}%
+}
+
+\ExplSyntaxOn % New interface
+
