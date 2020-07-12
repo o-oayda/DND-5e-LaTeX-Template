@@ -303,5 +303,33 @@
   \subsubsection{\arabic{NumberedSubArea}. #1}%
 }
 
+% Alternate Map Area format with a single letter.
+\newcommand{\LetteredAreaLabel@Prefix}{letteredarea}
+\newcommand{\SetLetteredAreaLabelPrefix}[1]{%
+  \renewcommand{\LetteredAreaLabel@Prefix}{#1}}
+
+\newcounter{LetteredArea}
+\newcommand\ResetLetteredAreas{%
+  \setcounter{LetteredArea}{0}}
+
+\NewDocumentCommand\letteredarea{mo}{%
+  \refstepcounter{LetteredArea}%
+  \IfNoValueTF{#2}%
+    {\label{\LetteredAreaLabel@Prefix:#1}}%
+    {\label{\LetteredAreaLabel@Prefix:#2}}%
+  \subsection{#1}%
+}
+
+% defines the lettered sub-areas
+\newcounter{LetteredSubArea}[LetteredArea]
+
+\NewDocumentCommand\letteredsubarea{mo}{%
+  \refstepcounter{LetteredSubArea}%
+  \IfNoValueTF{#2}%
+    {\label{\LetteredAreaLabel@Prefix:#1}}%
+    {\label{\LetteredAreaLabel@Prefix:#2}}%
+  \subsubsection{\Alph{LetteredSubArea}. #1}%
+}
+
 \ExplSyntaxOn % New interface
 
