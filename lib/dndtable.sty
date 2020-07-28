@@ -1,5 +1,9 @@
 \ExplSyntaxOn
 
+% Fix for \rowcolors ignoring the "first row" field
+\newcounter{tblerows}
+\expandafter\let\csname c@tblerows\endcsname\rownum
+
 % Special Columns
 \newcolumntype {Y} { > {\centering\arraybackslash } X }
 \newcolumntype {`} { > {\global\let\currentrowstyle\relax } }
@@ -63,6 +67,39 @@
 
   \group_end:
 }
+
+  % Alternate table definition where the first row color is transparent,
+  % but then alternates the theme color and white, as per some source books.
+  \NewDocumentEnvironment {DndAltTable} { o m }
+  {
+    \group_begin:
+
+    \dim_set:Nn \l__dnd_table_width_dim { \linewidth }
+    \tl_if_novalue:nF {#1}
+      { \keys_set:nn { dnd / table } {#1} }
+
+    \par \vspace { 9pt plus 3pt minus 3pt } \noindent
+
+    \tl_if_empty:NF \l__dnd_table_header_tl
+      {
+        \group_begin:
+          \DndFontTableTitle \l__dnd_table_header_tl \nopagebreak
+          \par \vspace{ 5pt plus 2pt minus 2pt } \noindent
+        \group_end:
+      }
+
+    \DndFontTableBody
+
+    \rowcolors {2} {white} {\l__dnd_table_color_tl}
+
+    \tabularx {\l__dnd_table_width_dim} {#2}
+  }
+  {
+    \endtabularx \vspace { 9pt plus 3pt minus 3pt }
+
+    \group_end:
+  }
+
 
 % Ornamented box content from: https://tex.stackexchange.com/a/501736/2575
 % TODO: Work out how to get the rest of the content from the .tex file into
