@@ -60,3 +60,27 @@
     \colorlet {sidebarcolor} {#1}
     \colorlet {tablecolor}   {#1}
   }
+
+% Allows almost all colors to be overridden individually, to implement color schemes
+% for example like the GoS sourcebook.
+\NewDocumentCommand {\DndSetComplexThemeColor} {
+  O {themecolor} % themecolor, tablecolor
+  O {themecolor} % commentcolor, sidebarcolor
+  O {readaloudcolor} % DndReadAloud background
+  O {readaloudbordercolor} % DndReadAloud border color
+  O {titlecolor} % titles
+  O {titlerulecolor} % titlerules
+  O {pagecolor} % pagenumbers and footer
+  }
+  {
+    \colorlet {themecolor}   {#1}
+    \colorlet {tablecolor}   {#1}
+    \colorlet {commentcolor} {#2}
+    \colorlet {sidebarcolor} {#2}
+    \colorlet {readaloudcolor} {#3}
+    \colorlet {readaloudbordercolor} {#4}
+    \colorlet {titlecolor}   {#5}
+    \colorlet {titlerulecolor} {#6}
+    \colorlet {pagecolor}   {#7}
+    \colorlet {xxx}   {#1}
+  }
