@@ -288,6 +288,18 @@ version is configured to do a two-column table.
     100 & You win a magic item or an expensive piece of classic artwork. \\
 \end{dndlongtable}
 
+\subsection{Tables with Footnotes}
+
+\begin{minipage}{8cm}
+  \begin{DndTable}[header=Footnoted Table]{lX}
+    \textbf{Table head\footnote{\enspace Something to note}} & \textbf{Table head} \\
+    Some value  & Some value\footnote{\enspace Another thing to note} \\
+    Some value  & Some value \\
+    Some value  & Some value \\
+    Some value\footnote{\enspace The most important note}  & Some value \\
+  \end{DndTable}
+\end{minipage}
+
 \subsection{Ornamented Tables}
 The |ornamentedtabular| allows tables similar to those used for spellcasters
 (see over page).
