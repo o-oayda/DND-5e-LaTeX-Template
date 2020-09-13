@@ -120,6 +120,66 @@ This ditch has a board spanning it.
 \DndSubArea{Entrance}
 A five-foot hole reveals the dirt floor illuminated by a hole in the roof.
 
+\section{Alternate Map Region Styles}
+Published modules sometimes use plain numbers for locations, sometimes plain
+letters, and sometimes they prefix a character to the front of the numbers.
+The following options can be used to display in these forms:
+
+\numberedarea{Numbered Dungeon}
+Areas in the Numbered Dungeon have sequential numbers. This is done using
+the following commands:
+
+\begin{verbatim}
+\numberedarea{Numbered Dungeon}
+\numberedsubarea{Entry}
+\numberedsubarea{Trap}
+\numberedsubarea{Fight}
+\numberedsubarea{Exit}
+\end{verbatim}
+
+These commands yield the following results:
+\numberedsubarea{Entry}
+\numberedsubarea{Trap}
+\numberedsubarea{Fight}
+\numberedsubarea{Exit}
+
+\letteredarea{Lettered Dungeon}
+Areas in the Lettered Dungeon are labelled with sequential characters
+(A, B, C, etc). This is done using the following commands:
+
+\begin{verbatim}
+\letteredarea{Lettered Dungeon}
+\letteredsubarea{Entry}
+\letteredsubarea{Trap}
+\letteredsubarea{Fight}
+\letteredsubarea{Exit}
+\end{verbatim}
+
+These commands yield the following results:
+\letteredsubarea{Entry}
+\letteredsubarea{Trap}
+\letteredsubarea{Fight}
+\letteredsubarea{Exit}
+
+\prefixedarea{Prefixed Dungeon}{Z}
+Areas in the Prefixed Dungeon have a custom prefix character,
+in this case: `\prefixedareaprefix'.
+This is done using the following commands:
+
+\begin{verbatim}
+\prefixedarea{Prefixed Dungeon}{Z}
+\prefixedsubarea{Entry}
+\prefixedsubarea{Trap}
+\prefixedsubarea{Fight}
+\prefixedsubarea{Exit}
+\end{verbatim}
+
+These commands yield the following results:
+\prefixedsubarea{Entry}
+\prefixedsubarea{Trap}
+\prefixedsubarea{Fight}
+\prefixedsubarea{Exit}
+
 \chapter{Text Boxes}
 
 The module has three environments for setting text apart so that it is drawn to the reader's attention. |DndReadAloud| is used for text that a game master would read aloud.
