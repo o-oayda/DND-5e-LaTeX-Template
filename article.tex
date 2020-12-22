@@ -548,18 +548,20 @@ Use |\DndSetThemeColor[<color>]| to set |commentcolor|, |readaloudcolor|, |sideb
 
 \endgroup
 
-\subsection{More Theme Colors Control}
+\subsection{Extra Theme Color Control}
 Use |\DndSetComplexThemeColor| in order to have more precise control over the various theme colors defined within the document class. This command takes seven (7) |<color>| values that map to the following color variables within the theme:
 
-\begin{DndTable}[header=Complex Theme Parameter Map]{cX}
-  \textbf{Param \#} & \textbf{Variable Mapping} \\
-  1 & \textit{themecolor}, \textit{tablecolor} \\
-  2 & \textit{commentcolor}, \textit{sidebarcolor} \\
-  3 & \textit{readaloudcolor} (DndReadAloud background) \\
-  4 & \textit{readaloudbordercolor} \\
-  5 & \textit{titlecolor} \\
-  6 & \textit{titlerulecolor} \\
-  7 & \textit{pagecolor} (page numbers and footer) \\
+\begin{DndTable}[header=Complex Theme Parameter Map]{clX}
+  \textbf{\#} & \textbf{Variable Set} & \textbf{Affected Style} \\
+  1 & \textit{themecolor} & Used in |DndSetThemeColor|, set for future compatibility \\
+    & \textit{tablecolor} & |DndTable| \\
+  2 & \textit{commentcolor} & |DndComment| \\
+    & \textit{sidebarcolor} & |DndSidebar| \\
+  3 & \textit{readaloudcolor} & |DndReadAloud| background \\
+  4 & \textit{readaloudbordercolor} & |DndReadAloud| border \\
+  5 & \textit{titlecolor} & Titles of sections (|section|, |subsection|, etc) \\
+  6 & \textit{titlerulecolor} & |subsection| title ruling \\
+  7 & \textit{pagecolor} & Page numbers and footer \\
 \end{DndTable}
 
 \begin{DndComment}{Note On Changing Schemes}
@@ -569,7 +571,7 @@ likely that the background ``paper'' (which can be overridden with
 to be modified as well in order to fit the other color modifications.
 \end{DndComment}
 
-An example of these settings for a theme similar to the \textit{Ghosts of Saltmarsh} sourcebook:
+An example of these settings for a theme similar to the \textit{Ghosts of Saltmarsh} sourcebook. Note that the values for \textit{titlered} and \textit{titlegold} are used for the title and title rule colours unchanged in this example.
 
 \begin{lstlisting}[basicstyle=\ttfamily\small]
 \definecolor {mytheme} {HTML} {DCF1E5}
