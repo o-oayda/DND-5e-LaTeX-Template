@@ -20,6 +20,7 @@
 \RequirePackage {xcolor}
 \RequirePackage {xparse} % \NewDocumentCommand and expl3
 \RequirePackage {makecell}
+\RequirePackage {xtab}
 
 \sys_if_engine_luatex:T
   {
