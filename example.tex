@@ -606,7 +606,7 @@ This package provides several global color variables to style |DndComment|, |Dnd
 
 They also accept an optional color argument to set the color for a single instance. See Table~\ref{tab:colors} for a list of core book accent colors.
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\small]
 \begin{DndTable}[color=PhbLightCyan]{cX}
   \textbf{d8} & \textbf{Item} \\
   1 & Small wooden button \\
@@ -633,7 +633,7 @@ They also accept an optional color argument to set the color for a single instan
 \section{Themed Colors}
 Use |\DndSetThemeColor[<color>]| to set |commentcolor|, |readaloudcolor|, |sidebarcolor|, and |tablecolor| to a specific color. Calling |\DndSetThemeColor| without an argument sets those colors to the current |themecolor|. In the following example the group limits the change to just a few boxes; after the group finishes, the colors are reverted to what they were before the group started.
 
-\begin{lstlisting}
+\begin{lstlisting}[basicstyle=\ttfamily\small]
 \begingroup
 \DndSetThemeColor[PhbMauve]
 
