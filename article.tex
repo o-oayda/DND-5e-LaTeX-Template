@@ -35,11 +35,12 @@
 % to be modified for any major color scheme change. The values below are
 % thematic for a sourcebook like GoS.
 \definecolor {mytheme}      {HTML} {DCF1E5} %
+\definecolor {mycomment}    {HTML} {E9F5F5} %
 \definecolor {mysidebar}    {HTML} {E9F5F5} %
 \definecolor {myreadaloud}  {HTML} {DCF1E5} %
 \definecolor {myreadaloudborder}  {HTML} {8AA7A2} %
 \definecolor {mypagenum}  {HTML} {B5D4CF} %
-%\DndSetComplexThemeColor[mytheme][mysidebar][myreadaloud][myreadaloudborder][titlered][titlegold][mypagenum]
+%\DndSetComplexThemeColor[mytheme][mycomment][mysidebar][myreadaloud][myreadaloudborder][titlered][titlegold][mypagenum]
 
 \MakeShortVerb{|}
 
@@ -557,19 +558,19 @@ Use |\DndSetThemeColor[<color>]| to set |commentcolor|, |readaloudcolor|, |sideb
 \endgroup
 
 \subsection{Extra Theme Color Control}
-Use |\DndSetComplexThemeColor| in order to have more precise control over the various theme colors defined within the document class. This command takes seven (7) |<color>| values that map to the following color variables within the theme:
+Use |\DndSetComplexThemeColor| in order to have more precise control over the various theme colors defined within the document class. This command takes eight (8) |<color>| values that map to the following color variables within the theme:
 
 \begin{DndTable}[header=Complex Theme Parameter Map]{clX}
   \textbf{\#} & \textbf{Variable Set} & \textbf{Affected Style} \\
-  1 & \textit{themecolor} & Used in |DndSetThemeColor|, set for future compatibility \\
+  1 & \textit{themecolor} & Used in |DndSetThemeColor|; set for future compatibility \\
     & \textit{tablecolor} & |DndTable| \\
   2 & \textit{commentcolor} & |DndComment| \\
-    & \textit{sidebarcolor} & |DndSidebar| \\
-  3 & \textit{readaloudcolor} & |DndReadAloud| background \\
-  4 & \textit{readaloudbordercolor} & |DndReadAloud| border \\
-  5 & \textit{titlecolor} & Titles of sections (|section|, |subsection|, etc) \\
-  6 & \textit{titlerulecolor} & |subsection| title ruling \\
-  7 & \textit{pagecolor} & Page numbers and footer \\
+  3 & \textit{sidebarcolor} & |DndSidebar| \\
+  4 & \textit{readaloudcolor} & |DndReadAloud| background \\
+  5 & \textit{readaloudbordercolor} & |DndReadAloud| border \\
+  6 & \textit{titlecolor} & Titles of sections (|section|, |subsection|, etc) \\
+  7 & \textit{titlerulecolor} & |subsection| title ruling \\
+  8 & \textit{pagecolor} & Page numbers and footer \\
 \end{DndTable}
 
 \begin{DndComment}{Note On Changing Schemes}
@@ -583,11 +584,12 @@ An example of these settings for a theme similar to the \textit{Ghosts of Saltma
 
 \begin{lstlisting}[basicstyle=\ttfamily\small]
 \definecolor {mytheme} {HTML} {DCF1E5}
+\definecolor {mycomment} {HTML} {E9F5F5}
 \definecolor {mysidebar} {HTML} {E9F5F5}
 \definecolor {myreadaloud} {HTML} {DCF1E5}
 \definecolor {myreadaloudborder} {HTML} {8AA7A2}
 \definecolor {mypagenum} {HTML} {B5D4CF}
-\DndSetComplexThemeColor[mytheme][mysidebar][myreadaloud][myreadaloudborder][titlered][titlegold][mypagenum]
+\DndSetComplexThemeColor[mytheme][mycomment][mysidebar][myreadaloud][myreadaloudborder][titlered][titlegold][mypagenum]
 \end{lstlisting}
 
 \end{document}
