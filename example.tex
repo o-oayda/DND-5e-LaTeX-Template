@@ -659,4 +659,39 @@ Use |\DndSetThemeColor[<color>]| to set |commentcolor|, |readaloudcolor|, |sideb
 \end{DndSidebar}
 \endgroup
 
+\subsection{Extra Theme Color Control}
+Use |\DndSetComplexThemeColor| in order to have more precise control over the various theme colors defined within the document class. This command takes eight (8) |<color>| values that map to the following color variables within the theme:
+
+\begin{DndTable}[header=Complex Theme Parameter Map]{clX}
+  \textbf{\#} & \textbf{Variable Set} & \textbf{Affected Style} \\
+  1 & \textit{themecolor} & Used in |DndSetThemeColor|; set for future compatibility \\
+    & \textit{tablecolor} & |DndTable| \\
+  2 & \textit{commentcolor} & |DndComment| \\
+  3 & \textit{sidebarcolor} & |DndSidebar| \\
+  4 & \textit{readaloudcolor} & |DndReadAloud| background \\
+  5 & \textit{readaloudbordercolor} & |DndReadAloud| border \\
+  6 & \textit{titlecolor} & Titles of sections (|section|, |subsection|, etc) \\
+  7 & \textit{titlerulecolor} & |subsection| title ruling \\
+  8 & \textit{pagecolor} & Page numbers and footer \\
+\end{DndTable}
+
+\begin{DndComment}{Note On Changing Schemes}
+If a major color scheme change is attempted, it is
+likely that the background ``paper'' (which can be overridden with
+|\SetPaperImage|) and footerscroll.pdf will need
+to be modified as well in order to fit the other color modifications.
+\end{DndComment}
+
+An example of these settings for a theme similar to the \textit{Ghosts of Saltmarsh} sourcebook. Note that the values for \textit{titlered} and \textit{titlegold} are used for the title and title rule colours unchanged in this example.
+
+\begin{lstlisting}[basicstyle=\ttfamily\small]
+\definecolor {mytheme} {HTML} {DCF1E5}
+\definecolor {mycomment} {HTML} {E9F5F5}
+\definecolor {mysidebar} {HTML} {E9F5F5}
+\definecolor {myreadaloud} {HTML} {DCF1E5}
+\definecolor {myreadaloudborder} {HTML} {8AA7A2}
+\definecolor {mypagenum} {HTML} {B5D4CF}
+\DndSetComplexThemeColor[mytheme][mycomment][mysidebar][myreadaloud][myreadaloudborder][titlered][titlegold][mypagenum]
+\end{lstlisting}
+
 \end{document}

@@ -65,7 +65,8 @@
 % for example like the GoS sourcebook.
 \NewDocumentCommand {\DndSetComplexThemeColor} {
   O {themecolor} % themecolor, tablecolor
-  O {themecolor} % commentcolor, sidebarcolor
+  O {themecolor} % commentcolor
+  O {themecolor} % sidebarcolor
   O {readaloudcolor} % DndReadAloud background
   O {readaloudbordercolor} % DndReadAloud border color
   O {titlecolor} % titles
@@ -76,10 +77,10 @@
     \colorlet {themecolor}   {#1}
     \colorlet {tablecolor}   {#1}
     \colorlet {commentcolor} {#2}
-    \colorlet {sidebarcolor} {#2}
-    \colorlet {readaloudcolor} {#3}
-    \colorlet {readaloudbordercolor} {#4}
-    \colorlet {titlecolor}   {#5}
-    \colorlet {titlerulecolor} {#6}
-    \colorlet {pagecolor}   {#7}
+    \colorlet {sidebarcolor} {#3}
+    \colorlet {readaloudcolor} {#4}
+    \colorlet {readaloudbordercolor} {#5}
+    \colorlet {titlecolor}   {#6}
+    \colorlet {titlerulecolor} {#7}
+    \colorlet {pagecolor}   {#8}
   }
