@@ -297,6 +297,21 @@ version is configured to do a two-column table.
 \end{dndlongtable}
 
 \subsection{Tables with Footnotes}
+Surrounding one of the existing table types with a |minipage| section
+allows footnotes declared in the table to appear at the end of the table,
+rather than in the page footer as normal. For a regularly sized table
+in the two-column layout, the following declaration can be used:
+
+\begin{lstlisting}[basicstyle=\ttfamily\small]
+\begin{minipage}{8cm}
+  \begin{DndTable}
+    ...
+    ...
+  \end{DndTable}
+\end{minipage}
+\end{lstlisting}
+
+To achieve the following effect:
 
 \begin{minipage}{8cm}
   \begin{DndTable}[header=Footnoted Table]{lX}
