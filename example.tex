@@ -97,6 +97,12 @@ While the creature is charmed by you, they cannot take their eyes off the scroll
 \section{Map Regions}
 The map region functions |\DndArea| and |\DndSubArea| provide automatic numbering of areas.
 
+The command |\DndMap{title}| creates a new map index (A, B, C\ldots). This doesn't add anything to the document, but the map index can be referenced with |\ref{map:title}|. For example, the Kingdom is map\,\ref{map:The Kingdom}.
+
+\DndMap{The Kingdom}
+
+Areas can be references with |\ref{area:name}|. For example, Mount Doofus is area \ref{area:Mount Doofus}.
+
 \DndArea{Village of Hommlet}
 This is the village of hommlet.
 
@@ -114,6 +120,9 @@ This ditch has a board spanning it.
 
 \DndSubArea{Entrance}
 A five-foot hole reveals the dirt floor illuminated by a hole in the roof.
+
+\DndArea[\ref{map:The Kingdom}]{Mount Doofus}
+This area has a prefix before the number. The prefix is an optional parameter on |\DndArea|. Useful if your document contains multiple maps!
 
 \chapter{Text Boxes}
 

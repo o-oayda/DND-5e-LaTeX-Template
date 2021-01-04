@@ -1,5 +1,9 @@
 \ExplSyntaxOn
 
+\newcommand{\customlabel}[2]{%
+  \protected@write \@auxout {}{\string \newlabel {#1}{{#2}{}}}
+}
+
 \bool_if:NT \l__dnd_layout_bool
 {
   % Change part numbering to Arabic numbers from Roman numerals
@@ -158,6 +162,9 @@
 % Options
 \keys_define:nn { dnd / areas }
   {
+    map-label .tl_set: N         = \l__dnd_map_label_tl,
+    map-label .initial:n         = map,
+    map-label .value_required:n  = true,
     area-label .tl_set:N          = \l__dnd_area_label_tl,
     area-label .initial:n         = area,
     area-label .value_required:n  = true,
@@ -179,6 +186,15 @@
   }
 
 % Counters
+\newcounter {DndMapCounter}
+\renewcommand{\theDndMapCounter}{\Alph{DndMapCounter}}
+
+\NewDocumentCommand {\DndMap} {m}
+  {
+    \stepcounter{DndMapCounter}
+    \customlabel{\l__dnd_map_label_tl :#1}{\theDndMapCounter}
+  }
+
 \newcounter {DndAreaCounter}
 
 \NewDocumentCommand {\DndResetAreas} {}
@@ -193,12 +209,13 @@
 \renewcommand \theDndSubAreaCounter { \alph {DndSubAreaCounter} }
 
 % Functions to create an area including text and label
-\NewDocumentCommand {\DndArea} {m}
+\NewDocumentCommand {\DndArea} {O{}m}
   {
     \refstepcounter {DndAreaCounter}
-    \label { \l__dnd_region_tl \l__dnd_area_label_tl :#1 }
+    %\label { \l__dnd_region_tl \l__dnd_area_label_tl :#2 }
+    \customlabel{\l__dnd_region_tl \l__dnd_area_label_tl :#2}{#1\arabic {DndAreaCounter}}
 
-    \tl_set:Nn \l_tmpa_tl { \l__dnd_region_tl \arabic {DndAreaCounter} . ~ #1 }
+    \tl_set:Nn \l_tmpa_tl { \l__dnd_region_tl #1\arabic {DndAreaCounter} . ~ #2 }
 
     \str_case_e:nn {\l__dnd_area_num_depth_tl}
       {
