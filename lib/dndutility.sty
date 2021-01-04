@@ -17,6 +17,11 @@
 
 \msg_new:nnn { dnd } { dice / invalid_argument } { Invalid~argument~``#1''~passed~to~\noexpand\DndDice. }
 
+\NewDocumentCommand { \tocside } { m }
+  {
+    \addcontentsline{toc}{section}{\textit{Sidebar:}~#1}
+  }
+
 \NewDocumentCommand { \DndDice } { m }
   {
     \group_begin:
