@@ -31,10 +31,16 @@
   breaklines=true,
 }
 
-\title{The Dark \LaTeX{} \\
-\large An Example of the dndbook Class}
-\author{The rpgTeX Team}
-\date{2020/04/21}
+\title{
+  \Huge \scshape \fontfamily{pbk}\selectfont
+  The Dark \LaTeX{} \\
+  \medskip
+  \normalfont
+  \large
+  An Example of the dndbook Class
+}
+\author{The rpgTeX Team \and Steve}
+\date{}
 
 \begin{document}
 
@@ -121,8 +127,8 @@ This ditch has a board spanning it.
 \DndSubArea{Entrance}
 A five-foot hole reveals the dirt floor illuminated by a hole in the roof.
 
-\DndArea[\ref{map:The Kingdom}]{Mount Doofus}
-This area has a prefix before the number. The prefix is an optional parameter on |\DndArea|. Useful if your document contains multiple maps!
+\DndArea[The Kingdom]{Mount Doofus}
+This area has a map reference before the number. The map name is an optional parameter on |\DndArea|. Useful if your document contains multiple maps!
 
 \chapter{Text Boxes}
 
@@ -367,5 +373,13 @@ Use |\DndSetThemeColor[<color>]| to set |commentcolor|, |readaloudcolor|, |sideb
   The sidebar is also using the new theme color.
 \end{DndSidebar}
 \endgroup
+
+\part{Appendices}
+
+\appendix
+
+\chapter{One Last Thing}
+
+\DndDropCapLine{U}sing the |\appendix| command causes all subsequent chapters to be formatted as appendices. Neat!
 
 \end{document}
