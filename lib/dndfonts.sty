@@ -9,8 +9,7 @@
 
 \bool_if:NT \l__dnd_layout_bool
   {
-    \RequirePackage{bookman}
-    \RequirePackage{CrimsonPro}
+    \RequirePackage{noto-serif}
     \RequirePackage{lato}
     \RequirePackage[type1]{gillius2}
     \RequirePackage[notext,nomath,nott]{kpfonts}
@@ -99,7 +98,7 @@
     table-body-family .initial:n        = \__dnd_sf_initial_family:,
     table-body-family .value_required:n = true,
     table-body-style .tl_set:N         = \l__dnd_table_body_style_tl,
-    table-body-style .initial:n        = \small,
+    table-body-style .initial:n        = \small \linespread{1.2}\selectfont,
     table-body-style .value_required:n = true,
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Comment boxes
@@ -116,7 +115,7 @@
     comment-body-family .initial:n        = \__dnd_sf_initial_family:,
     comment-body-family .value_required:n = true,
     comment-body-style .tl_set:N         = \l__dnd_comment_body_style_tl,
-    comment-body-style .initial:n        = \linespread{1.1} \footnotesize,
+    comment-body-style .initial:n        = \linespread{1.1} \small,
     comment-body-style .value_required:n = true,
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Sidebars
@@ -133,7 +132,7 @@
     sidebar-body-family .initial:n        = \__dnd_sf_initial_family:,
     sidebar-body-family .value_required:n = true,
     sidebar-body-style .tl_set:N         = \l__dnd_sidebar_body_style_tl,
-    sidebar-body-style .initial:n        = \linespread{1.1} \footnotesize,
+    sidebar-body-style .initial:n        = \linespread{1.1} \small,
     sidebar-body-style .value_required:n = true,
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Read-aloud boxes
@@ -142,7 +141,7 @@
     readaloud-family .initial:n        = \__dnd_sf_initial_family:,
     readaloud-family .value_required:n = true,
     readaloud-style .tl_set:N         = \l__dnd_readaloud_style_tl,
-    readaloud-style .initial:n        = \linespread{1.3} \footnotesize,
+    readaloud-style .initial:n        = \linespread{1.3} \small,
     readaloud-style .value_required:n = true,
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Table of Contents
@@ -183,7 +182,7 @@
     stat-block-body-family .initial:n        = \__dnd_sf_initial_family:,
     stat-block-body-family .value_required:n = true,
     stat-block-body-style .tl_set:N         = \l__dnd_stat_block_body_style_tl,
-    stat-block-body-style .initial:n        = \footnotesize \linespread{1.1}\selectfont,
+    stat-block-body-style .initial:n        = \small \linespread{1.1}\selectfont,
     stat-block-body-style .value_required:n = true,
     % Stat block section
     stat-block-section-family .tl_set:N         = \l__dnd_stat_block_section_family_tl,
