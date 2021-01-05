@@ -91,3 +91,7 @@
 \RequirePackage {lib/dndsidebar}    % sidebars
 \RequirePackage {lib/dndtable}      % tables
 \RequirePackage {lib/dndtoc}        % table of contents styling
+
+% Aliases for commands
+\RequirePackage {lib/dndaliases}    % aliases for Dnd* commands
+
