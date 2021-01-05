@@ -37,10 +37,16 @@
   breaklines=true,
 }
 
-\title{The Dark \LaTeX{} \\
-\large An Example of the dndbook Class}
-\author{The rpgTeX Team}
-\date{2020/04/21}
+\title{
+  \Huge \scshape \fontfamily{pbk}\selectfont
+  The Dark \LaTeX{} \\
+  \medskip
+  \normalfont
+  \large
+  An Example of the dndbook Class
+}
+\author{The rpgTeX Team \and Steve}
+\date{}
 
 \begin{document}
 
@@ -189,8 +195,8 @@ These commands yield the following results:
 
 \section{Map References}
 
-\DndArea[\ref{map:The Kingdom}]{Mount Doofus}
-This area has a prefix before the number. The prefix is an optional parameter on |\DndArea|. Useful if your document contains multiple maps!
+\DndArea[The Kingdom]{Mount Doofus}
+This area has a map reference before the number. The map name is an optional parameter on |\DndArea|. Useful if your document contains multiple maps!
 
 \chapter{Text Boxes}
 
@@ -726,5 +732,13 @@ An example of these settings for a theme similar to the \textit{Ghosts of Saltma
 \definecolor {mypagenum} {HTML} {B5D4CF}
 \DndSetComplexThemeColor[mytheme][mycomment][mysidebar][myreadaloud][myreadaloudborder][titlered][titlegold][mypagenum]
 \end{lstlisting}
+
+\part{Appendices}
+
+\appendix
+
+\chapter{One Last Thing}
+
+\DndDropCapLine{U}sing the |\appendix| command causes all subsequent chapters to be formatted as appendices. Neat!
 
 \end{document}

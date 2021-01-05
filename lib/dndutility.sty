@@ -3,6 +3,14 @@
 % Useful regex strings
 \regex_const:Nn \c__pos_int_regex { \d+ }
 
+% Format appendix chapters in table of contents as "App. A: Name"
+\let\oldappendix\appendix
+\renewcommand{\appendix}
+  {
+    \oldappendix
+    \addtocontents{toc}{\protect\renewcommand{\protect\tocchapterabbreviationname}{App.}}
+  }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Dice macro
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
