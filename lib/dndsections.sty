@@ -211,11 +211,12 @@
 % Functions to create an area including text and label
 \NewDocumentCommand {\DndArea} {O{}m}
   {
-    \refstepcounter {DndAreaCounter}
-    %\label { \l__dnd_region_tl \l__dnd_area_label_tl :#2 }
-    \customlabel{\l__dnd_region_tl \l__dnd_area_label_tl :#2}{#1\arabic {DndAreaCounter}}
+    \tl_set:Nn \l_tmp_map_tl { \tl_if_empty:nTF {#1} {} {\ref{map:#1}} }
 
-    \tl_set:Nn \l_tmpa_tl { \l__dnd_region_tl #1\arabic {DndAreaCounter} . ~ #2 }
+    \refstepcounter {DndAreaCounter}
+    \customlabel{\l__dnd_region_tl \l__dnd_area_label_tl :#2}{\l_tmp_map_tl \arabic {DndAreaCounter}}
+
+    \tl_set:Nn \l_tmpa_tl { \l__dnd_region_tl \l_tmp_map_tl\arabic {DndAreaCounter} . ~ #2 }
 
     \str_case_e:nn {\l__dnd_area_num_depth_tl}
       {
