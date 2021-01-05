@@ -1,0 +1,87 @@
+% Aliases for mixed-case commands with lowercase to match standard Latex commands.
+
+% colors.sty
+\newcommand{\dndsetthemecolor}{\DndSetThemeColor}
+\newcommand{\dndsetcomplexthemecolor}{\DndSetComplexThemeColor}
+
+% dndfonts.sty
+\newcommand{\dndsetfonts}{\DndSetFonts}
+\newcommand{\dndfontpart}{\DndFontPart}
+\newcommand{\dndfontchapter}{\DndFontChapter}
+\newcommand{\dndfontsection}{\DndFontSection}
+\newcommand{\dndfontsubsection}{\DndFontSubsection}
+\newcommand{\dndfontsubsubsection}{\DndFontSubsubsection}
+\newcommand{\dndfontparagraph}{\DndFontParagraph}
+\newcommand{\dndfontsubparagraph}{\DndFontSubParagraph}
+\newcommand{\dndfonttabletitle}{\DndFontTableTitle}
+\newcommand{\dndfonttablebody}{\DndFontTableBody}
+\newcommand{\dndfontcommenttitle}{\DndFontCommentTitle}
+\newcommand{\dndfontcommentbody}{\DndFontCommentBody}
+\newcommand{\dndfontsidebartitle}{\DndFontSidebarTitle}
+\newcommand{\dndfontsidebarbody}{\DndFontSidebarBody}
+\newcommand{\dndfontreadaloud}{\DndFontReadAloud}
+\newcommand{\dndfonttocpart}{\DndFontTocPart}
+\newcommand{\dndfonttocchapter}{\DndFontTocChapter}
+\newcommand{\dndfonttocsection}{\DndFontTocSection}
+\newcommand{\dndfontstatblocktitle}{\DndFontStatBlockTitle}
+\newcommand{\dndfontstatblockbody}{\DndFontStatBlockBody}
+\newcommand{\dndfontstatblocksection}{\DndFontStatBlockSection}
+\newcommand{\dndfontfooter}{\DndFontFooter}
+\newcommand{\dndfontpagenumber}{\DndFontPageNumber}
+\newcommand{\dndfontdropcap}{\DndFontDropCap}
+\newcommand{\dnddropcapline}{\DndDropCapLine}
+\newcommand{\dndcontour}{\DndContour}
+
+% dndmonster.sty
+\newcommand{\dndcrexp}{\DndCRExp}
+\newcommand{\dndmonstertype}{\DndMonsterType}
+\newcommand{\dndmonsterline}{\DndMonsterLine}
+\newcommand{\dndmonsterbasics}{\DndMonsterBasics}
+\newcommand{\dndmonsterdetails}{\DndMonsterDetails}
+\newcommand{\dndmonsterabilityscores}{\DndMonsterAbilityScores}
+\newcommand{\dndmonsteraction}{\DndMonsterAction}
+\newcommand{\dndmonstersubaction}{\DndMonsterSubAction}
+\newcommand{\dndmonstersection}{\DndMonsterSection}
+\newcommand{\dndemphspellstring}{\DndEmphSpellString}
+% Can't override until old (deprecated?) versions removed...
+%\newcommand{\dndinnatespelllevel}{\DndInnateSpellLevel}
+%\newcommand{\dndmonsterspelllevel}{\DndMonsterSpellLevel}
+\newcommand{\dndmonsterattack}{\DndMonsterAttack}
+\newcommand{\dndmonstermelee}{\DndMonsterMelee}
+\newcommand{\dndmonsterranged}{\DndMonsterRanged}
+\newcommand{\dndmonsterlegendaryaction}{\DndMonsterLegendaryAction}
+
+% dndsections.sty
+\newcommand{\dndfeatheader}{\DndFeatHeader}
+\newcommand{\dnditemheader}{\DndItemHeader}
+\newcommand{\dndspellheader}{\DndSpellHeader}
+\newcommand{\dndsetareaoptions}{\DndSetAreaOptions}
+\newcommand{\dndresetareas}{\DndResetAreas}
+\newcommand{\dndarea}{\DndArea}
+\newcommand{\dndsubarea}{\DndSubArea}
+\newcommand{\dndarearef}{\DndAreaRef}
+\newcommand{\dndsubarearef}{\DndSubAreaRef}
+
+% dndstrings.sty
+\newcommand{\dndcaption}{\DndCaption}
+
+% dndutility.sty
+\newcommand{\dnddice}{\DndDice}
+
+% Aliases for mixed-case environments with lowercase to match standard Latex commands.
+% Taken from: tex.stackexchange.com/a/488451
+\newcommand{\envalias}[2]{\newenvironment{#1}{\begin{#2}}{\end{#2}}}
+
+% dndcomment.sty
+\envalias{dndcomment}{DndComment}
+
+% dndreadaloud.sty
+\envalias{dndreadaloud}{DndReadAloud}
+
+% dndsidebar.sty
+\envalias{dndsidebar}{DndSidebar}
+
+% dndtable.sty
+% The aliasing mechanism above doesn't work with DndTable... 
+%\envalias{dndtable}{DndTable}
+
