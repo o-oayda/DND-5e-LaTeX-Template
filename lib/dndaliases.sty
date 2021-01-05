@@ -1,4 +1,5 @@
 % Aliases for mixed-case commands with lowercase to match standard Latex commands.
+\ExplSyntaxOn
 
 % colors.sty
 \newcommand{\dndsetthemecolor}{\DndSetThemeColor}
@@ -43,9 +44,13 @@
 \newcommand{\dndmonstersubaction}{\DndMonsterSubAction}
 \newcommand{\dndmonstersection}{\DndMonsterSection}
 \newcommand{\dndemphspellstring}{\DndEmphSpellString}
-% Can't override until old (deprecated?) versions removed...
-%\newcommand{\dndinnatespelllevel}{\DndInnateSpellLevel}
-%\newcommand{\dndmonsterspelllevel}{\DndMonsterSpellLevel}
+\bool_if:NT \l__dnd_no_deprecated_code_bool
+{
+  % Old "monsterbox" style still uses these names, so can only be included
+  % when deprecated code explicitly excluded.
+  \newcommand{\dndinnatespelllevel}{\DndInnateSpellLevel}
+  \newcommand{\dndmonsterspelllevel}{\DndMonsterSpellLevel}
+}
 \newcommand{\dndmonsterattack}{\DndMonsterAttack}
 \newcommand{\dndmonstermelee}{\DndMonsterMelee}
 \newcommand{\dndmonsterranged}{\DndMonsterRanged}
@@ -82,6 +87,9 @@
 \envalias{dndsidebar}{DndSidebar}
 
 % dndtable.sty
-% The aliasing mechanism above doesn't work with DndTable... 
-%\envalias{dndtable}{DndTable}
+% The aliasing mechanism above doesn't work with DndTable unfortunately...
+\bool_if:NT \l__dnd_no_deprecated_code_bool
+{
+  %\envalias{dndtable}{DndTable}
+}
 

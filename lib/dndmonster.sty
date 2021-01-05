@@ -419,6 +419,8 @@
 % Workaround to get the spellcasting section of the old (deprecated?)
 % single column monsterbox to work
 \ExplSyntaxOn
+\bool_if:NF \l__dnd_no_deprecated_code_bool
+{
 \NewDocumentCommand {\dndinnatespelllevel} { O{\innateatwillname} m}
   {
     \smallskip
@@ -463,6 +465,7 @@
     ):~\DndEmphSpellString{#3}
     \end{hangingpar}
   }
+}
 
 \NewDocumentCommand {\DndInnateSpellLevel} { O {\innateatwillname} m }
   {
