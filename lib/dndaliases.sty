@@ -44,13 +44,8 @@
 \newcommand{\dndmonstersubaction}{\DndMonsterSubAction}
 \newcommand{\dndmonstersection}{\DndMonsterSection}
 \newcommand{\dndemphspellstring}{\DndEmphSpellString}
-\bool_if:NT \l__dnd_no_deprecated_code_bool
-{
-  % Old "monsterbox" style still uses these names, so can only be included
-  % when deprecated code explicitly excluded.
-  \newcommand{\dndinnatespelllevel}{\DndInnateSpellLevel}
-  \newcommand{\dndmonsterspelllevel}{\DndMonsterSpellLevel}
-}
+\newcommand{\dndinnatespelllevel}{\DndInnateSpellLevel}
+\newcommand{\dndmonsterspelllevel}{\DndMonsterSpellLevel}
 \newcommand{\dndmonsterattack}{\DndMonsterAttack}
 \newcommand{\dndmonstermelee}{\DndMonsterMelee}
 \newcommand{\dndmonsterranged}{\DndMonsterRanged}
