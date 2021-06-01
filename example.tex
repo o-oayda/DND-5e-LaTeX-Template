@@ -35,10 +35,16 @@
   breaklines=true,
 }
 
-\title{The Dark \LaTeX{} \\
-\large An Example of the dndbook Class}
-\author{The rpgTeX Team}
-\date{2020/04/21}
+\title{
+  \Huge \scshape \fontfamily{pbk}\selectfont
+  The Dark \LaTeX{} \\
+  \medskip
+  \normalfont
+  \large
+  An Example of the dndbook Class
+}
+\author{The rpgTeX Team \and Steve}
+\date{}
 
 \begin{document}
 
@@ -100,6 +106,12 @@ While the creature is charmed by you, they cannot take their eyes off the scroll
 
 \section{Map Regions}
 The map region functions |\DndArea| and |\DndSubArea| provide automatic numbering of areas.
+
+The command |\DndMap{title}| creates a new map index (A, B, C\ldots). This doesn't add anything to the document, but the map index can be referenced with |\ref{map:title}|. For example, the Kingdom is map\,\ref{map:The Kingdom}.
+
+\DndMap{The Kingdom}
+
+Areas can be references with |\ref{area:name}|. For example, Mount Doofus is area \ref{area:Mount Doofus}.
 
 \DndArea{Village of Hommlet}
 This is the village of hommlet.
@@ -179,6 +191,11 @@ These commands yield the following results:
 \prefixedsubarea{Fight}
 \prefixedsubarea{Exit}
 
+\section{Map References}
+
+\DndArea[The Kingdom]{Mount Doofus}
+This area has a map reference before the number. The map name is an optional parameter on |\DndArea|. Useful if your document contains multiple maps!
+
 \chapter{Text Boxes}
 
 The module has three environments for setting text apart so that it is drawn to the reader's attention. |DndReadAloud| is used for text that a game master would read aloud.
@@ -197,7 +214,10 @@ The other two environments are the |DndComment| and the |DndSidebar|. The |DndCo
 The |DndSidebar| is not breakable and is best used floated toward a page corner as it is below.
 
 \begin{DndSidebar}[float=!b]{Behold the DndSidebar!}
+\tocside{Behold the DndSidebar!}
   The |DndSidebar| is used as a sidebar. It does not break over columns and is best used with a figure environment to float it to one corner of the page where the surrounding text can then flow around it.
+  
+  Use the |\tocside{title}| command to create an entry in the table of contents, if you want.
 \end{DndSidebar}
 
 \section{Tables}
@@ -708,5 +728,13 @@ An example of these settings for a theme similar to the \textit{Ghosts of Saltma
 \definecolor {mypagenum} {HTML} {B5D4CF}
 \DndSetComplexThemeColor[mytheme][mycomment][mysidebar][myreadaloud][myreadaloudborder][titlered][titlegold][mypagenum]
 \end{lstlisting}
+
+\part{Appendices}
+
+\appendix
+
+\chapter{One Last Thing}
+
+\DndDropCapLine{U}sing the |\appendix| command causes all subsequent chapters to be formatted as appendices. Neat!
 
 \end{document}

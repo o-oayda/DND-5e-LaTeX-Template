@@ -67,6 +67,10 @@
     \setlist{leftmargin=1em}
     \setitemize{noitemsep,topsep=0.5ex}
     \renewcommand{\labelitemi}{\raisebox{0.25ex}{\tiny{\( \bullet \)}}}
+
+    % Customize enumerate environment.
+    \setlist{leftmargin=1em}
+    \setenumerate{noitemsep,topsep=0.5ex}
   }
 
 % Load other modules of this package after all dependencies to avoid load order

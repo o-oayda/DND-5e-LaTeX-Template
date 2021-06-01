@@ -3,6 +3,14 @@
 % Useful regex strings
 \regex_const:Nn \c__pos_int_regex { \d+ }
 
+% Format appendix chapters in table of contents as "App. A: Name"
+\let\oldappendix\appendix
+\renewcommand{\appendix}
+  {
+    \oldappendix
+    \addtocontents{toc}{\protect\renewcommand{\protect\tocchapterabbreviationname}{App.}}
+  }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Dice macro
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -16,6 +24,11 @@
 \tl_new:N \l__dice_mod_tl
 
 \msg_new:nnn { dnd } { dice / invalid_argument } { Invalid~argument~``#1''~passed~to~\noexpand\DndDice. }
+
+\NewDocumentCommand { \tocside } { m }
+  {
+    \addcontentsline{toc}{section}{\textit{Sidebar:}~#1}
+  }
 
 \NewDocumentCommand { \DndDice } { m }
   {
