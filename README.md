@@ -31,7 +31,7 @@ LaTeX will find the package automatically.
 1. Prepare your `TEXMFHOME` directory.
 
     ```sh
-    mkdir "$(kpsewhich -var-value TEXMFHOME)/tex/latex/"
+    mkdir -p "$(kpsewhich -var-value TEXMFHOME)/tex/latex/"
     ```
 
 2. Download the [latest release](https://github.com/rpgtex/DND-5e-LaTeX-Template/releases/latest) and extract it in `$TEXMFHOME/tex/latex/`.
