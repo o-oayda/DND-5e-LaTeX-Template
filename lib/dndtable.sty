@@ -102,7 +102,21 @@
 
   \rowcolors {2} {white} {\l__dnd_table_color_tl}
 
-  \tabularx {\l__dnd_table_width_dim} {#2}
+  \str_if_eq:VnTF \l__dnd_table_bold_tl { true }
+  {
+    \regex_extract_all:NnNTF \c__preamble_regex {#2} \l_tmpa_seq
+    {
+      \tl_set:Nn \l_tmpa_tl {\seq_use:Nn \l_tmpa_seq {^}}
+      \use:x { \exp_not:n {\tabularx{\l__dnd_table_width_dim}}{`\l_tmpa_tl}}
+      \rowstyle{\DndFontTableHeader}
+    }
+    {
+      \tabularx {\l__dnd_table_width_dim} {#2}
+    }
+  }
+  {
+    \tabularx {\l__dnd_table_width_dim} {#2}
+  }
 }
 {
   \endtabularx \vspace { 9pt plus 3pt minus 3pt }
