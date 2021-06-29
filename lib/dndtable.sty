@@ -78,37 +78,37 @@
   \group_end:
 }
 
-  % Alternate table definition where the first row color is transparent,
-  % but then alternates the theme color and white, as per some source books.
-  \NewDocumentEnvironment {DndAltTable} { o m }
-  {
-    \group_begin:
+% Alternate table definition where the first row color is transparent,
+% but then alternates the theme color and white, as per some source books.
+\NewDocumentEnvironment {DndAltTable} { o m }
+{
+  \group_begin:
 
-    \dim_set:Nn \l__dnd_table_width_dim { \linewidth }
-    \tl_if_novalue:nF {#1}
-      { \keys_set:nn { dnd / table } {#1} }
+  \dim_set:Nn \l__dnd_table_width_dim { \linewidth }
+  \tl_if_novalue:nF {#1}
+    { \keys_set:nn { dnd / table } {#1} }
 
-    \par \vspace { 9pt plus 3pt minus 3pt } \noindent
+  \par \vspace { 9pt plus 3pt minus 3pt } \noindent
 
-    \tl_if_empty:NF \l__dnd_table_header_tl
-      {
-        \group_begin:
-          \DndFontTableTitle \l__dnd_table_header_tl \nopagebreak
-          \par \vspace{ 5pt plus 2pt minus 2pt } \noindent
-        \group_end:
-      }
+  \tl_if_empty:NF \l__dnd_table_header_tl
+    {
+      \group_begin:
+        \DndFontTableTitle \l__dnd_table_header_tl \nopagebreak
+        \par \vspace{ 5pt plus 2pt minus 2pt } \noindent
+      \group_end:
+    }
 
-    \DndFontTableBody
+  \DndFontTableBody
 
-    \rowcolors {2} {white} {\l__dnd_table_color_tl}
+  \rowcolors {2} {white} {\l__dnd_table_color_tl}
 
-    \tabularx {\l__dnd_table_width_dim} {#2}
-  }
-  {
-    \endtabularx \vspace { 9pt plus 3pt minus 3pt }
+  \tabularx {\l__dnd_table_width_dim} {#2}
+}
+{
+  \endtabularx \vspace { 9pt plus 3pt minus 3pt }
 
-    \group_end:
-  }
+  \group_end:
+}
 
 %%%%%%%%%%%%% START "dndlongtable" CODE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Normally, @ is not a valid character in macro names. Make the @ symbol a
