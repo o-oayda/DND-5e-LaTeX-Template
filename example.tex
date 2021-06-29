@@ -232,6 +232,12 @@ The |DndTable| colors the even rows and is set to the width of a line by default
     Some value  & Some value
 \end{DndTable}
 
+The text in the first row of the table automatically uses boldface;
+to prevent this, add ``bold=false'' to the optional parameters, for example:
+\begin{lstlisting}[basicstyle=\ttfamily\small]
+[header=Nice Table,bold=false]
+\end{lstlisting}
+
 \subsection{Alternate Table Background}
 
 The |DndAltTable| allows tables that have a blank "header" line followed
