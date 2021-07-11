@@ -102,6 +102,24 @@
     {\parindent} % left
     {\parskip}   % before-sep
     {\wordsep}   % after-sep
+
+  % Listparagraph
+  % Because paragraph/subparagraph seem to be built-in types (?),
+  % I reused the DndSpellHeader formatting as it looked "right",
+  % but it means the listparagraph markup has to be wrapped in {},
+  % which feels a bit dinky but not sure how to make it consistent.
+  \NewDocumentCommand {\listparagraph} { O{-6pt} m m }
+    {
+      \begin{description}
+        [
+          topsep=0pt,
+          before=\vspace{#1},
+          labelsep = \l__dnd_space_dim,
+          after    = { \vspace{4pt plus 1pt minus 1pt} },
+        ]
+        \item [ #2 : ] #3
+      \end{description}
+    }
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
