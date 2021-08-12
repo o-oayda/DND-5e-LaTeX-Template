@@ -79,12 +79,24 @@ The paragraph format is seldom used in the core books, but is available if you p
 \subparagraph{Subparagraph}
 The subparagraph format with the paragraph indent is likely going to be more familiar to the reader.
 
-\listparagraph[6pt]{Listparagraph}
-{The listparagraph format allows hanging indented lists of options, such as those
-used for class features and background skill/tool proficiency options.}
+\subsubsection{Hanging Indent Features}
+The |listparagraph| format allows hanging indented
+lists of options, such as those used for class features,
+background skill/tool proficiency options, and
+sometimes area features, for example:
 
-\listparagraph{Listparagraph}
-{The listparagraph with no vertical space after the previous paragraph.}
+\listparagraph[6pt]{Doors}
+{The doors are made from thick lumber and are unlocked.}
+
+\listparagraph{Light}
+{The area is illuminated by candles placed in sconces on the
+walls. Each candle has had a \textit{continual flame} spell
+cast on it. Dispelling a flame is rumoured to give grievous offence
+to the host.}
+
+\listparagraph{Ventilation}
+{All areas contain an adequate air supply. The air is renewed
+via lung-like sacks that cling to the ceiling.}
 
 \section{Special Sections}
 The module also includes functions to aid in the proper typesetting of multi-line section headers: |\DndFeatHeader| for feats, |\DndItemHeader| magic items and traps, and |\DndSpellHeader| for spells.
