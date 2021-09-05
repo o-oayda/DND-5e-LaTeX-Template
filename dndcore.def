@@ -22,6 +22,9 @@
 \RequirePackage {makecell}
 \RequirePackage {xtab}
 
+\RequirePackage {keycommand}
+\RequirePackage {everypage}
+
 \sys_if_engine_luatex:T
   {
     \RequirePackage {luacolor}
