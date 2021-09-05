@@ -17,6 +17,93 @@
   % Remove Numbering (If you want Numbering set secnumdepth to the appropriate depth)
   \setcounter{secnumdepth}{0}
 
+  % Creates the exterior cover page of the book.
+  \newkeycommand\rpgMakeCover[
+    image=,
+    logo=,
+    title=Title,
+    subtitle=subtitle,
+    ]{
+    \onecolumn
+    \thispagestyle{empty}
+    \fancypagestyle {plain}
+    \AddThispageHook{
+        \tikz[remember~picture,overlay] \node[inner~sep=0pt] at (current~page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
+    }
+    \begin{center}
+      {\vspace*{20mm}\includegraphics[width=2cm]{\commandkey{logo}}\\*\vspace*{15mm}}
+      \MakeUppercase{\commandkey{title}}\\*
+      \normalfont\normalsize\includegraphics[width=.5\paperwidth]{img/separator}\\*
+              \LARGE
+      \vspace*{85mm}
+      \textbf{\commandkey{subtitle}}
+    \end{center}
+    \clearpage
+    \twocolumn
+  }
+
+  % Creates the inner "title" page of the book.
+  \newkeycommand\rpgMakeTitle[
+    title=Title,
+    subtitle=Subtitle,
+    author=Author,
+    credits,
+    ]{
+    \onecolumn
+    \thispagestyle{empty}
+    \begin{center}
+      \vspace*{15mm}
+      {\fontsize{30}{25}\selectfont
+      \scshape
+      \commandkey{title}\\ \par}
+      \vspace{20pt}
+      \commandkey{subtitle}\\
+      \vspace{20pt}
+      by\\
+      \vspace{5pt}
+      {\huge
+      \commandkey{author}}\\
+      \vspace{\fill}
+      \ifcommandkey{credits}
+      {\footnotesize\itshape\commandkey{credits}}\\
+    \end{center}
+    \twocolumn
+  }
+
+  \newkeycommand\rpgMakeBackCover[
+    image=,
+    logo=,
+    title=Title,
+    subtitle=subtitle,
+    blurbtext=blurbtext,
+    ]{
+    \onecolumn
+    \thispagestyle{empty}
+    \fancypagestyle{plain}
+    \AddThispageHook{
+        \tikz[remember~picture,overlay] \node[inner~sep=0pt] at (current~page.center){\includegraphics[width=\paperwidth,height=\paperheight]{\commandkey{image}}};
+    }
+    \begin{center}
+        \vspace*{20mm}\includegraphics[width=2cm]{\commandkey{logo}}\\*\vspace*{15mm}
+        \MakeUppercase{\commandkey{title}}\\*
+        \normalfont\normalsize\includegraphics[width=.5\paperwidth]{img/separator}\\*
+                \LARGE
+        \vspace*{15mm}
+        \textbf{\commandkey{subtitle}}\\*
+        \vspace*{85mm}
+        %\fontsize{16pt}{16pt}
+        \begingroup
+        %\leftskip 4em
+        %\rightskip 4em
+        % TODO: blurbtext probably should be an option for the front page too?
+        % TODO: blurb should be white with dark contour as well?
+        \textbf{\commandkey{blurbtext}}
+        \endgroup
+    \end{center}
+    \clearpage
+    \twocolumn
+  }
+
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Section formatting
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
