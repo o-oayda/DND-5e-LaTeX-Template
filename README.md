@@ -119,6 +119,7 @@ Note that the package has only been tested with the `book` class.
 | `layout`       | ✓               |                   |
 | `nomultitoc`   | ✓               | ✓                 |
 | `nodeprecatedcode`   | ✓               | ✓                 |
+| `fancy`        | ✓               | ✓                 |
 
 The `dndbook` class also supports all the options of the `book` class.
 
@@ -152,6 +153,12 @@ Disable multi-column table of contents.
 #### `nodeprecatedcode`
 
 Excludes all deprecated code from the build process.
+
+#### `fancy`
+Invokes an alternate layout for the `part` style that uses a full page
+background image. Combined with the front/back cover construction
+demonstrated in `fancy-example.tex`, can be used to make more
+colourful separators.
 
 ## Dependencies
 
