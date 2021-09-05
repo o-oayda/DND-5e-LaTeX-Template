@@ -30,6 +30,7 @@
 \bool_new:N \l__dnd_justified_bool
 \bool_new:N \l__dnd_multitoc_bool
 \bool_new:N \l__dnd_layout_bool
+\bool_new:N \l__dnd_fancy_bool
 \bool_new:N \l__dnd_no_deprecated_code_bool
 
 \bool_set_true:N \l__dnd_multitoc_bool
@@ -92,6 +93,13 @@
         \bool_set_true:N \l__dnd_layout_set_bool
       }, % Remove and replace with .bool_set:N in 1.0.0
     layout .value_required:n = true,
+
+    % "Fancy" book style option
+    fancy .code:n =
+      {
+        \bool_set_true:N \l__dnd_fancy_bool
+      },
+    fancy .value_forbidden:n = true,
 
     % Unknown option handling
     unknown .code:n =

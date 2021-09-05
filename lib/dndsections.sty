@@ -21,12 +21,25 @@
   % Section formatting
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   % Part
-  \titleformat {\part}
-    [display]
-    { \centering \DndFontPart } % format
-    { \DndContour{\partname\ \thepart} } % label
-    { 2ex } % sep
-    { \DndContour } % before-code
+  \bool_if:NTF \l__dnd_fancy_bool
+    {
+      \titleformat{\part}
+      [display]
+      {\thispagestyle{part}\fontsize{50pt}{50pt}\selectfont\color{sectiontitlecolor}\filcenter} %\ \nodesto
+      {\partname \thepart}
+      {-8pt}
+      {\Large}
+      \titlespacing*{\part}{0pt}{-40pt}{0pt}
+    }
+    {
+      % Default/standard part appearance
+      \titleformat {\part}
+        [display]
+        { \centering \DndFontPart } % format
+        { \DndContour{\partname\ \thepart} } % label
+        { 2ex } % sep
+        { \DndContour } % before-code
+    }
 
   % Chapter
   \titleformat {\chapter}
