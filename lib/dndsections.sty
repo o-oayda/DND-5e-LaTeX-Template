@@ -468,5 +468,11 @@
   \subsubsection{\Alph{LetteredSubArea}. #1}%
 }
 
+\NewDocumentCommand\DndQuote{ m m m }{
+  \textsc{#1}
+  {\small\textit{#2}}
+  \vspace{-6px}\par\hfill--{#3}
+}
+
 \ExplSyntaxOn % New interface
 
