@@ -10,6 +10,11 @@
 \newcolumntype {`} { > {\global\let\currentrowstyle\relax } }
 \newcolumntype {^} { > {\currentrowstyle} }
 
+% Add an extra pixel to row height to give a little extra breathing room.
+% Unfortunately this adds to top and bottom, whereas just top would be
+% preferable...
+\setlength\extrarowheight{1pt}
+
 % Matches {, }, >,  , and any other character
 \regex_const:Nn \c__preamble_regex {>\s*{.*}\s*\S|\S}
 
