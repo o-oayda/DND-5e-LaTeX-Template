@@ -19,7 +19,7 @@ Summary of the major changes compared to the ![default repo](https://github.com/
 * Alternate table style where every second line has a white (rather than transparent) background.
 * Long table option that spans columns/page breaks.
 * Example of tables with footnotes attached to the table.
-* An "ornamtented table" for displaying things such as a caster spell slot table (adapted from ![this tex.SE answer](https://tex.stackexchange.com/a/501736/2575)).
+* An "ornamtented table" for displaying things such as a caster spell slot table (adapted from https://tex.stackexchange.com/a/501736/2575).
 * Extended variables for more control over the document color scheme.
 * Ported ![ryumaou's](https://github.com/ryumaou/RPG-LaTeX-Template-With-Cover) book with cover/chapter art over (see ![fancy-examples.tex](fancy-example.tex)).
 
