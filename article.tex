@@ -338,6 +338,23 @@ version is configured to do a two-column table.
     100 & You win a magic item or an expensive piece of classic artwork. \\
 \end{dndlongtable}
 
+Since |dndlongtable| accepts column definitions in the standard |tabular|
+format, alternate numbers of columns can be defined by passing an optional
+parameter. For example, using:
+
+\begin{lstlisting}[basicstyle=\ttfamily\small]
+\begin{dndlongtable}[c p{0.66\linewidth} p{0.1\linewidth}]
+\end{lstlisting}
+
+Yields a three-column table:
+
+\begin{dndlongtable}[c p{0.65\linewidth} p{0.12\linewidth}]
+    \textbf{d100} & \textbf{Result} & \textbf{GP} \\
+    1-2 & You win a magic item or an expensive piece of classic artwork. & 100 gp \\
+    ... & & \\
+    100 & You win a magic item or an expensive piece of classic artwork. & 1000 gp \\
+\end{dndlongtable}
+
 \subsection{Tables with Footnotes}
 Surrounding one of the existing table types with a |minipage| section
 allows footnotes declared in the table to appear at the end of the table,
