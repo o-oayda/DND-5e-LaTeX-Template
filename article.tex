@@ -413,10 +413,15 @@ The |ornamentedtabular| allows tables similar to those used for spellcasters
 \end{ornamentedtabular}
 \end{figure*}
 
+\clearpage
+
 \section{Monsters and NPCs}
+The |DndMonster| environment is used to typeset monster and NPC stat blocks. The module supplies many functions to easily typeset the contents of the stat block.
+
+The stat block can be formatted either as a single column, or as a block that spans the page horizontally.
 
 % Monster stat block
-\begin{DndMonster}[float=t]{Monster Foo}
+\begin{DndMonster}[float=h]{Monster Foo}
   \DndMonsterType{Medium aberration (metasyntactic variable), neutral evil}
 
   % If you want to use commas in the key values, enclose the values in braces.
@@ -637,9 +642,7 @@ The |ornamentedtabular| allows tables similar to those used for spellcasters
   \end{multicols}
 \end{DndMonster}
 
-The |DndMonster| environment is used to typeset monster and NPC stat blocks. The module supplies many functions to easily typeset the contents of the stat block.
-
-The stat block can be formatted either as a single column, or as a block that spans the page horizontally.
+\clearpage
 
 \section{Colors}
 
