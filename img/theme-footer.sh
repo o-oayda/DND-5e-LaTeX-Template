@@ -22,7 +22,7 @@ cp -p $BASEDIR/src/${FOOTERFILE} ${BASEDIR}/${TEMPFILE}
 sed -i 's/deca82/'${color}'/g' ${BASEDIR}/${TEMPFILE}
 
 # Use inkscape to regenerate the footer PDF.
-inkscape -z -A=${BASEDIR}/themed-footerscroll.pdf ${BASEDIR}/${TEMPFILE}
+inkscape -z ${BASEDIR}/${TEMPFILE} --export-type=pdf -o ${BASEDIR}/themed-footerscroll.pdf
 
 # Clean up
 rm ${BASEDIR}/${TEMPFILE}
