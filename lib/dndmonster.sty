@@ -320,6 +320,7 @@
 %% Ability scores
 % Print ability score stats with auto-computed modifier
 % e.g. \stat{12} prints "12 (+1)"
+\RequirePackage{xstring}
 \cs_new_protected_nopar:Npn \__dnd_ability_score_modifier:N #1
   {
     \regex_match:NnTF \c__pos_int_regex {#1}
