@@ -276,6 +276,47 @@ by alternating theme color and white background, as per some of the sourcebooks.
     Some value  & Some value \\
 \end{DndAltTable}
 
+\subsection{Split Tables}
+Temporarily adding a column using |multicols| can
+be used to achieve the effect of a split column
+table.
+
+Add the following around two or more tables (note
+the non-breaking space character (\char`\~) used for
+the table header on all but the first):
+
+\begin{lstlisting}[basicstyle=\ttfamily\small]
+\begin{multicols}{2}
+\begin{DndAltTable}[header=Encounters]{cX}
+...
+\end{DndAltTable}
+\begin{DndAltTable}[header=~]{cX}
+...
+\end{DndAltTable}
+\end{multicols}
+\end{lstlisting}
+
+This achieves the following effect:
+
+\begin{multicols}{2}
+\begin{DndAltTable}[header=Encounters]{cX}
+    \textbf{d10} & \textbf{Encounter} \\
+    1  & Toppled statue \\
+    2  & Ferocious kitten \\
+    3  & Broken sign \\
+    4  & Blind beggar \\
+    5  & Piercing wail \\
+\end{DndAltTable}
+\begin{DndAltTable}[header=~]{cX}
+    \textbf{d10} & \textbf{Encounter} \\
+    6  & Pack of wolves \\
+    7  & Drunk owlbear \\
+    8  & Freed prisoners \\
+    9  & Wild magic zone \\
+    10 & Magic item \\
+\end{DndAltTable}
+\end{multicols}
+
 \subsection{Long Table that Spans Pages}
 
 The |dndlongtable| allows table that can span multiple pages. The current
