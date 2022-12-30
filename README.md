@@ -257,6 +257,24 @@ Instead, use the `tcolorbox` `float` parameter:
 
 Refer to the `tcolorbox` documentation (section 4.13) for more float parameters.
 
+## Notes
+
+### Modifying Fonts
+Specifically with `pdflatex`, many of the default Latex fonts don't seem
+to work. Some do, and may or may not be preferable to the defaults.
+They can be changed in `lib/dndfonts.sty' by modifying the
+`\RequirePackage{bookman}` and `{ \gilliustwo }` lines to refer to
+the alternate font name.
+
+These standard fonts work out of the box:
+
+* almendra
+* coelacanth
+* crimson
+* ebgaramond
+* forum
+* merriweather
+
 ## Contributing
 
 ### Style
