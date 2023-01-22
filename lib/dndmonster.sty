@@ -59,15 +59,15 @@
     left        = 0pt,
     right       = 0pt,
     sharp~corners,
-    borderline~north = {2pt} {0pt}   {titlered},
-    borderline~south = {2pt} {0pt}   {titlered},
+    borderline~north = {2pt} {0pt}   {statblocktitle},
+    borderline~south = {2pt} {0pt}   {statblocktitle},
     opacityback = 0,
-    colframe    = titlered,
+    colframe    = statblocktitle,
     fonttitle   = \DndFontStatBlockTitle,
     fontupper   = \DndFontStatBlockBody,
     fontlower   = \DndFontStatBlockBody,
     title       = {#2},
-    coltitle    = titlered,
+    coltitle    = statblocktitle,
     #1
   }
 
@@ -88,15 +88,15 @@
     bottom           = 7pt,
     sharp~corners,
     oversize         = 0pt,
-    borderline~north = {3pt} {0pt}   {titlered},
+    borderline~north = {3pt} {0pt}   {statblocktitle},
     borderline~north = {2pt} {0.5pt} {statblockribbon},
-    borderline~south = {3pt} {0pt}   {titlered},
+    borderline~south = {3pt} {0pt}   {statblocktitle},
     borderline~south = {2pt} {0.5pt} {statblockribbon},
     colback          = statblockbg,
     colbacktitle     = statblockbg,
-    colframe         = titlered,
+    colframe         = statblocktitle,
     fonttitle        = \DndFontStatBlockTitle,
-    coltitle         = titlered,
+    coltitle         = statblocktitle,
     fontupper        = \DndFontStatBlockBody,
     fontlower        = \DndFontStatBlockBody,
     title            = {#2},
@@ -126,7 +126,7 @@
   {
     \par \vspace{-2pt} \noindent
     \begin {tikzpicture}
-      \draw [ rulered, fill = rulered ] ( 0, 0 ) -- ( 0, 0.1 ) -- ( \linewidth, 0.05 );
+      \draw [ rulecolor, fill = rulecolor ] ( 0, 0 ) -- ( 0, 0.1 ) -- ( \linewidth, 0.05 );
     \end {tikzpicture}
     \par
   }
@@ -135,7 +135,7 @@
 \newlist {__dnd_monster_attributes} {description} {1}
 \setlist [__dnd_monster_attributes]
   {
-    before   = \color {titlered},
+    before   = \color {statblocktitle},
     font     = \DndFontStatBlockBody,
     labelsep = \l__dnd_space_dim,
     nosep,
@@ -367,7 +367,7 @@
 % Ability scores in a table
 \cs_new_protected_nopar:Npn \__dnd_monster_ability_scores:
   {
-    \color {titlered}
+    \color {statblocktitle}
     \par \vspace{1pt} \noindent
     \begin{tabularx} {\linewidth} {YYYYYY}
       \rule {0pt} {3.7mm} % adds space between hline and table

@@ -22,9 +22,10 @@ Summary of the major changes compared to the ![default repo](https://github.com/
 * An "ornamtented table" for displaying things such as a caster spell slot table (adapted from https://tex.stackexchange.com/a/501736/2575).
 * Extended variables for more control over the document color scheme.
 * Ported ![ryumaou's](https://github.com/ryumaou/RPG-LaTeX-Template-With-Cover) book with cover/chapter art over (see ![fancy-examples.tex](fancy-example.tex)).
+* Ported ![pineapplemachine's](https://github.com/pineapplemachine/TTRPG-LaTeX-Template) book with high contrast (see ![high-contrast-example.tex](high-contrast-example.tex)).
 
 ![Preview](scrot.jpg)
-
+![Preview - High contrast](high-contrast-example.jpg)
 ## Installation
 
 There are three options for using this project; choose the one that's
@@ -132,6 +133,7 @@ Note that the package has only been tested with the `book` class.
 | `nomultitoc`   | ✓               | ✓                 |
 | `nodeprecatedcode`   | ✓               | ✓                 |
 | `fancy`        | ✓               | ✓                 |
+| `highcontrast` | ✓               | ✓                 |
 
 The `dndbook` class also supports all the options of the `book` class.
 
@@ -142,6 +144,8 @@ Declare how to load background and footer images. This is a key-value option wit
 * `full`: Load both background and footer images. (**default**)
 * `none`: Removes both background and footer images.
 * `print`: Loads only the footer images.
+
+If `highcontrast` is set background is disabled.
 
 #### `justified`
 
@@ -171,6 +175,10 @@ Invokes an alternate layout for the `part` style that uses a full page
 background image. Combined with the front/back cover construction
 demonstrated in `fancy-example.tex`, can be used to make more
 colourful separators.
+
+#### `highcontrast`
+
+Enables high contrast print friendly style.
 
 ## Dependencies
 

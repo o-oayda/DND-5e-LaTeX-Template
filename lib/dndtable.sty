@@ -179,13 +179,9 @@
 % End of the code from Loop Space
 
 % Ornamented box content from: https://tex.stackexchange.com/a/501736/2575
-\colorlet{ornamentedFrameInner}{black}
-\definecolor{ornamentedFrameOuter}{HTML}{deb400}
-
-% Ornamented box content from: https://tex.stackexchange.com/a/501736/2575
-\tikzset{ornamented frame inner/.style={color=ornamentedFrameInner,
+\tikzset{ornamented frame inner/.style={color=ornamentedframeinner,
                                         line width=2pt},
-         ornamented frame outer/.style={color=ornamentedFrameOuter,
+         ornamented frame outer/.style={color=ornamentedframeouter,
                                         line width=3pt}}
 
 \tcbsubskin{ornamented}{empty}{
@@ -201,7 +197,7 @@
     %
     \foreach \xoffset/\point in {34pt/north west, -34pt/north east,
                                   34pt/south west, -34pt/south east} {
-      \fill[color=ornamentedFrameOuter]
+      \fill[color=ornamentedframeouter]
         ([xshift=\xoffset]\point) circle[radius=2.5pt];
     }
     %
@@ -246,7 +242,7 @@
     %
     \foreach \xoffset/\point in {34pt/north west, -34pt/north east,
                                  34pt/south west, -34pt/south east} {
-      \fill[color=ornamentedFrameInner]
+      \fill[color=ornamentedframeinner]
         ([xshift=\xoffset]\point) circle[radius=2pt];
     }
   }
