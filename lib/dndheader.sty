@@ -72,12 +72,23 @@
     \DndFontFooter \leftmark
     \begin{tikzpicture}[remember~picture,overlay]
       \bool_if:NT \l__dnd_show_footer_scroll_bool {
-        \IfFileExists{img/themed-footerscroll.pdf}
-        {
-          \node[xscale=-1,inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/themed-footerscroll}};
+        \bool_if:NTF \l__dnd_highcontrast_bool {
+          \IfFileExists{img/themed-footerscroll-highcontrast.pdf}
+          {
+            \node[xscale=-1,inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/themed-footerscroll-highcontrast}};
+          }
+          {
+            \node[xscale=-1,inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/footerscroll-highcontrast}};
+          }
         }
         {
-          \node[xscale=-1,inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/footerscroll}};
+          \IfFileExists{img/themed-footerscroll.pdf}
+          {
+            \node[xscale=-1,inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/themed-footerscroll}};
+          }
+          {
+            \node[xscale=-1,inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/footerscroll}};
+          }
         }
       }
       \node[inner~sep=0pt,anchor=south,xshift=.28in,yshift=.39in] at (current~page.south~west) {\DndFontPageNumber \thepage};
@@ -89,12 +100,23 @@
     \DndFontFooter \leftmark
     \begin{tikzpicture}[remember~picture,overlay]
       \bool_if:NT \l__dnd_show_footer_scroll_bool {
-        \IfFileExists{img/themed-footerscroll.pdf}
-        {
-          \node[inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/themed-footerscroll}};
+        \bool_if:NTF \l__dnd_highcontrast_bool {
+          \IfFileExists{img/themed-footerscroll-highcontrast.pdf}
+          {
+            \node[inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/themed-footerscroll-highcontrast}};
+          }
+          {
+            \node[inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/footerscroll-highcontrast}};
+          }
         }
         {
-          \node[inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/footerscroll}};
+          \IfFileExists{img/themed-footerscroll.pdf}
+          {
+            \node[inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/themed-footerscroll}};
+          }
+          {
+            \node[inner~sep=0pt,anchor=south,nearly~opaque] at (current~page.south) {\includegraphics[width=\paperwidth,height=.6in]{img/footerscroll}};
+          }
         }
       }
       \node[inner~sep=0pt,anchor=south,xshift=-.28in,yshift=.39in] at (current~page.south~east) {\DndFontPageNumber \thepage};
