@@ -28,10 +28,11 @@
     {\thecontentslabel :~ } % numbered-entry-format
     {} % numberless-entry-format
     {\titlerule*{.}\contentspage} % filler-page-format
+
   \newcommand\tocchapapp{\tocchapterabbreviationname}
     \g@addto@macro\appendix{%
       \addtocontents{toc}{\protect\renewcommand{\protect\@chapapp}{\appendixname}}%
-      \addtocontents{toc}{\protect\renewcommand{\protect\tocchapapp}{\appendixname}}%
+      \addtocontents{toc}{\protect\renewcommand{\protect\tocchapapp}{\tocappendixabbreviationname}}%
   }
 
 }
