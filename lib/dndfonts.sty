@@ -176,6 +176,7 @@
     toc-chapter-family .initial:n        = \normalfont,
     toc-chapter-family .value_required:n = true,
     toc-chapter-style .tl_set:N         = \l__dnd_toc_chapter_style_tl,
+    %toc-chapter-style .initial:n        = \normalsize \scshape \color{titlecolor},
     toc-chapter-style .initial:n        = \large \scshape \color{titlecolor},
     toc-chapter-style .value_required:n = true,
     % Section
@@ -183,6 +184,7 @@
     toc-section-family .initial:n        = \normalfont,
     toc-section-family .value_required:n = true,
     toc-section-style .tl_set:N         = \l__dnd_toc_section_style_tl,
+    %toc-section-style .initial:n        = \tiny,
     toc-section-style .initial:n        = \normalsize,
     toc-section-style .value_required:n = true,
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -382,12 +384,17 @@
   }
 
 \NewDocumentCommand{\DndContour}{ O{contourgray} m }
-  {
-    \group_begin:
-    \seq_set_split:Nnn \l_tmpa_seq { \newline } { #2 }
-    \seq_set_map:NNn \l_tmpb_seq \l_tmpa_seq { \exp_not:n {\__dnd_contour_preserve_space:nn{#1}{##1}} }
-    \seq_use:Nn \l_tmpb_seq { \newline }
-    \group_end:
+  {\bool_if:NTF \l__dnd_no_outline_bool
+    {
+      { #2 }
+    }
+    {
+      \group_begin:
+      \seq_set_split:Nnn \l_tmpa_seq { \newline } { #2 }
+      \seq_set_map:NNn \l_tmpb_seq \l_tmpa_seq { \exp_not:n {\__dnd_contour_preserve_space:nn{#1}{##1}} }
+      \seq_use:Nn \l_tmpb_seq { \newline }
+      \group_end:
+    }
   }
 
 \NewDocumentCommand{\DndTitleContour}{ O{contourblack} m }

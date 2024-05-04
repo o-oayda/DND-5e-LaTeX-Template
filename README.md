@@ -134,6 +134,7 @@ Note that the package has only been tested with the `book` class.
 | `nodeprecatedcode`   | ✓               | ✓                 |
 | `fancy`        | ✓               | ✓                 |
 | `highcontrast` | ✓               | ✓                 |
+| `nooutline`    | ✓               | ✓                 |
 
 The `dndbook` class also supports all the options of the `book` class.
 
@@ -179,6 +180,10 @@ colourful separators.
 #### `highcontrast`
 
 Enables high contrast print friendly style.
+
+#### `nooutline`
+
+Removes the contour outline of the title and chapter heading fonts.
 
 ## Dependencies
 

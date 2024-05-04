@@ -32,6 +32,7 @@
 \bool_new:N \l__dnd_layout_bool
 \bool_new:N \l__dnd_fancy_bool
 \bool_new:N \l__dnd_highcontrast_bool
+\bool_new:N \l__dnd_no_outline_bool
 \bool_new:N \l__dnd_no_deprecated_code_bool
 
 \bool_set_true:N \l__dnd_multitoc_bool
@@ -109,6 +110,13 @@
         \bool_set_false:N \l__dnd_show_background_bool
       },
     highcontrast .value_forbidden:n = false,
+
+    % Turn off "outline" in certain heading font styles book style option
+    nooutline .code:n =
+      {
+        \bool_set_true:N \l__dnd_no_outline_bool
+      },
+    nooutline .value_forbidden:n = false,
 
     % Unknown option handling
     unknown .code:n =
