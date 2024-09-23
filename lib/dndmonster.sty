@@ -365,11 +365,39 @@
     \par \vspace{4pt}%
   }
 
+% Sentient items use ability scores and alignment in a table
+\cs_new_protected_nopar:Npn \__dnd_sentient_item_ability_scores:N #1
+  {
+    \color {titlered}
+    \par \vspace{1pt} \noindent
+    \begin{tabularx} {\linewidth} {YYYY}
+      \rule {0pt} {3.7mm} % adds space between hline and table
+      \textbf {\intstatname} &
+      \textbf {\wisstatname} &
+      \textbf {\chastatname} &
+      \textbf {Alignment} \\
+      \exp_args:NV \__dnd_ability_score_modifier:N \l__int_tl &
+      \exp_args:NV \__dnd_ability_score_modifier:N \l__wis_tl &
+      \exp_args:NV \__dnd_ability_score_modifier:N \l__cha_tl &
+      {#1} \\
+    \end{tabularx}
+    
+    \par \vspace{4pt}%
+  }
+
 \NewDocumentCommand {\DndMonsterAbilityScores} {o}
   {
     \group_begin:
       \keys_set:nn { dnd / monster / ability_scores } {#1}
       \__dnd_monster_ability_scores:
+    \group_end:
+  }
+
+\NewDocumentCommand {\DndSentientItemAbilityScores} {om}
+  {
+    \group_begin:
+      \keys_set:nn { dnd / monster / ability_scores } {#1}
+      \__dnd_sentient_item_ability_scores:N {#2}
     \group_end:
   }
 
@@ -392,7 +420,7 @@
       \vspace {2pt}\nopagebreak[4]
       \hrule height 0.6pt
     \group_end:
-      \par \vspace{5pt}
+      \par\nopagebreak[4] \vspace{5pt}\nopagebreak[4]
     \noindent \ignorespaces
   }
 
@@ -478,6 +506,7 @@
     type .choice:,
     type / weapon .code:n = { \tl_set:Nn \l__dnd_attack_type_tl {\weaponname} },
     type / spell .code:n = { \tl_set:Nn \l__dnd_attack_type_tl {\spellname} },
+    type / psionic .code:n = { \tl_set:Nn \l__dnd_attack_type_tl {\psionicname} },
     type .initial:n  = weapon,
     mod .tl_set:N         = \l__mod_tl,
     mod .value_required:n = true,
@@ -533,40 +562,44 @@
     }
   }
 
+\cs_new_protected:Npn \__dnd_monster_attack_info:
+  {
+    \str_case_e:nnF {\l__dnd_attack_distance_tl}
+      {
+        { melee }
+          {
+            \textit{ \__dnd_caption:nn {\meleeattackname} {\l__dnd_attack_type_tl} : } ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}, ~ \__dnd_monster_reach:
+          }
+        { ranged }
+          {
+            \textit{ \__dnd_caption:nn {\rangedattackname} {\l__dnd_attack_type_tl} : } ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}, ~ \__dnd_monster_range:
+          }
+      }
+      {% Melee and Ranged is the default
+        \textit{ \__dnd_caption:nn {\meleeorrangedattackname} {\l__dnd_attack_type_tl} : } ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}, ~ \__dnd_monster_reach:\ \orname\ \__dnd_monster_range:
+      }
+    , ~ \l__targets_tl. ~
+    \textit { \hitname : } ~
+
+    \str_if_empty:NF {\l__dmg_tl} % Don't show any damage if `dmg' is not set.
+      {
+        \l__dmg_tl\ \l__dmg_type_tl\ \damagename
+        \__dnd_if_or_dmg:
+        \__dnd_if_plus_dmg:
+      }
+
+    % `extra' is any special text that goes after the final damage; do not
+    % include the final full stop.
+    \l__extra_tl .
+  }
+
 \cs_new_protected:Npn \__dnd_monster_attack:
   {
     \__dnd_check_for_key:Nnn \l__name_tl {\DndMonsterAttack} {name}
     \__dnd_check_for_key:Nnn \l__mod_tl {\DndMonsterAttack} {mod}
 
     \begin{DndMonsterAction} {\l__name_tl}~
-
-      \str_case_e:nnF {\l__dnd_attack_distance_tl}
-        {
-          { melee }
-            {
-              \textit{ \__dnd_caption:nn {\meleeattackname} {\l__dnd_attack_type_tl} : } ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}, ~ \__dnd_monster_reach:
-            }
-          { ranged }
-            {
-              \textit{ \__dnd_caption:nn {\rangedattackname} {\l__dnd_attack_type_tl} : } ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}, ~ \__dnd_monster_range:
-            }
-        }
-        {% Melee and Ranged is the default
-          \textit{ \__dnd_caption:nn {\meleeorrangedattackname} {\l__dnd_attack_type_tl} : } ~ \__dnd_caption:nn {\tohitname} {\l__mod_tl}, ~ \__dnd_monster_reach:\ \orname\ \__dnd_monster_range:
-        }
-      , ~ \l__targets_tl. ~
-      \textit { \hitname : } ~
-
-      \str_if_empty:NF {\l__dmg_tl} % Don't show any damage if `dmg' is not set.
-        {
-          \l__dmg_tl\ \l__dmg_type_tl\ \damagename
-          \__dnd_if_or_dmg:
-          \__dnd_if_plus_dmg:
-        }
-
-      % `extra' is any special text that goes after the final damage; do not
-      % include the final full stop.
-      \l__extra_tl .
+      \__dnd_monster_attack_info:
     \end{DndMonsterAction}
   }
 
@@ -609,4 +642,3 @@
   {
     \item [ #1 . ] #2
   }
-
