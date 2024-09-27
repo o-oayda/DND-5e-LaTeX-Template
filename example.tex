@@ -1,4 +1,4 @@
-\documentclass[letterpaper,twocolumn,openany,nodeprecatedcode]{dndbook}
+\documentclass[letterpaper,twocolumn,openany,nodeprecatedcode,stats=modern]{dndbook}
 
 % Use babel or polyglossia to automatically redefine macros for terms
 % Armor Class, Level, etc...
@@ -117,14 +117,14 @@ A five-foot hole reveals the dirt floor illuminated by a hole in the roof.
 
 \chapter{Text Boxes}
 
-The module has three environments for setting text apart so that it is drawn to the reader's attention. |DndReadAloud| is used for text that a game master would read aloud.
+The module has several environments for setting text apart so that it is drawn to the reader's attention. |DndReadAloud| is used for text that a game master would read aloud.
 
 \begin{DndReadAloud}
   As you approach this module you get a sense that the blood and tears of many generations went into its making. A warm feeling welcomes you as you type your first words.
 \end{DndReadAloud}
 
 \section{As an Aside}
-The other two environments are the |DndComment| and the |DndSidebar|. The |DndComment| is breakable and can safely be used inline in the text.
+The next two environments are the |DndComment| and the |DndSidebar|. The |DndComment| is breakable and can safely be used inline in the text.
 
 \begin{DndComment}{This Is a Comment Box!}
   A |DndComment| is a box for minimal highlighting of text. It lacks the ornamentation of |DndSidebar|, but it can handle being broken over a column.
@@ -135,6 +135,16 @@ The |DndSidebar| is not breakable and is best used floated toward a page corner 
 \begin{DndSidebar}[float=!b]{Behold the DndSidebar!}
   The |DndSidebar| is used as a sidebar. It does not break over columns and is best used with a figure environment to float it to one corner of the page where the surrounding text can then flow around it.
 \end{DndSidebar}
+
+You can represent an attached note (for example, for notes from Bigby or Mordenkainen) using the |DndAside| environment.
+
+\begin{DndAside}
+  This is the part where I give you a little extra information or make a witty comment to keep you entertained while you read.
+\end{DndAside}
+
+\begin{DndQuotation}{The Author}
+  This is the part where I give you a little extra information or make a witty comment to keep you entertained while you read.
+\end{DndQuotation}
 
 \section{Tables}
 The |DndTable| colors the even rows and is set to the width of a line by default.
@@ -158,6 +168,7 @@ The |DndTable| colors the even rows and is set to the width of a line by default
         armor-class = {9 (12 with \emph{mage armor})},
         hit-points  = {\DndDice{3d8 + 3}},
         speed       = {30 ft., fly 30 ft.},
+        initiative  = --1,
       ]
 
     \DndMonsterAbilityScores[
@@ -180,7 +191,8 @@ The |DndTable| colors the even rows and is set to the width of a line by default
         languages = {Common, Goblin, Undercommon},
         challenge = 1,
       ]
-    % Traits
+    
+    \DndMonsterSection{Traits}
     \DndMonsterAction{Innate Spellcasting}
     Foo's spellcasting ability is Charisma (spell save DC 12, +4 to hit with spell attacks). It can innately cast the following spells, requiring no material components:
     \begin{DndMonsterSpells}

@@ -291,6 +291,13 @@
     stat-block-section-style .tl_set:N         = \l__dnd_stat_block_section_style_tl,
     stat-block-section-style .initial:n        = \color{titlered} \scshape \large,
     stat-block-section-style .value_required:n = true,
+    % Stat block 'mod'/'sav' ability headers
+    stat-block-mod-sav-family .tl_set:N         = \l__dnd_stat_block_mod_sav_family_tl,
+    stat-block-mod-sav-family .initial:n        = \sffamily,
+    stat-block-mod-sav-family .value_required:n = true,
+    stat-block-mod-sav-style .tl_set:N         = \l__dnd_stat_block_mod_sav_style_tl,
+    stat-block-mod-sav-style .initial:n        = \color{modsavtitle} \scshape \scriptsize,
+    stat-block-mod-sav-style .value_required:n = true,
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     % Miscellaneous
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -400,6 +407,9 @@
 
 \NewDocumentCommand{\DndFontStatBlockSection}{}
   { \l__dnd_stat_block_section_family_tl \l__dnd_stat_block_section_style_tl }
+
+\NewDocumentCommand{\DndFontAbilityModHeader}{}
+  { \l__dnd_stat_block_mod_sav_family_tl \l__dnd_stat_block_mod_sav_style_tl }
 
 % Miscellaneous
 \NewDocumentCommand{\DndFontFooter}{}
