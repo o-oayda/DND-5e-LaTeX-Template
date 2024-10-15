@@ -50,18 +50,19 @@
     }
 }
 
-% Used if the "fancy" layout option is invokved
+% Used if the "fancy" layout option is invoked
 \fancypagestyle{part}{
+  \newcommand{\sectionpartbgimage}{img/section-part-default} % Default background image
   \bool_if:NT \l__dnd_show_background_bool
   {
     \fancyhf{} % clear all headers and footers
     \fancyhead{
-        \begin{tikzpicture}[remember~picture,overlay]
-            % TODO: Make the "section part" background image configurable, using hard-coded default for now.
-            \node[inner~sep=0pt] at (current~page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/section-part-default}};
-            \node[inner~sep=0pt,anchor=north] at (current~page.north) {\includegraphics[width=\paperwidth]{img/header-part-circ}};
-            \node[inner~sep=0pt,anchor=north~west] at (current~page.north~west) {\includegraphics[width=.5\paperwidth]{img/header-part}};
-            \node[xscale=-1, inner~sep=0pt, anchor=north~west] at (current~page.north~east) {\includegraphics[width=.5\paperwidth]{img/header-part}};
+        \begin{tikzpicture}[remember picture,overlay]
+            % Use configurable background image
+            \node[inner sep=0pt] at (current page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\sectionpartbgimage}};
+            \node[inner sep=0pt,anchor=north] at (current page.north) {\includegraphics[width=\paperwidth]{img/header-part-circ}};
+            \node[inner sep=0pt,anchor=north west] at (current page.north west) {\includegraphics[width=.5\paperwidth]{img/header-part}};
+            \node[xscale=-1, inner sep=0pt, anchor=north west] at (current page.north east) {\includegraphics[width=.5\paperwidth]{img/header-part}};
         \end{tikzpicture}
     }
   }
