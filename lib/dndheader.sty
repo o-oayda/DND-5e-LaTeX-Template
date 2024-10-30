@@ -18,8 +18,8 @@
           {
             \MakeUppercase
               {
-                \ifnum\value{secnumdepth}>-1
-                  \@chapapp\ \thechapter :~
+                \ifnum\value{secnumdepth}>0
+                  \chaptername\ \thechapter :~
                 \fi
                 #1
               }
@@ -37,16 +37,31 @@
   \renewcommand{\paperimage}{#1}}
 
 \newcommand{\printpaperimage}{\paperimage}
+\skip_new:N \l__dnd_footer_inset_skip
+
+\bool_if:NT \l__dnd_eberron_mode_bool
+  {
+    \addtolength{\footskip}{9pt}
+    \skip_set:Nn \l__dnd_footer_inset_skip {24pt}
+  }
 
 \fancyhf {} % clear all headers and footers
 
 % Header is used to include the page background
-\fancyhead{
+\fancyhead[CO]{
   \bool_if:NT \l__dnd_show_background_bool
     {
-    \begin{tikzpicture}[remember~picture,overlay]
-      \node[inner~sep=0pt] at (current~page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\printpaperimage}};
-    \end{tikzpicture}
+      \begin{tikzpicture}[remember~picture,overlay]
+        \node[inner~sep=0pt] at (current~page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\l__dnd_background_name_tl - recto}};
+      \end{tikzpicture}
+    }
+}
+\fancyhead[CE]{
+  \bool_if:NT \l__dnd_show_background_bool
+    {
+      \begin{tikzpicture}[remember~picture,overlay]
+        \node[inner~sep=0pt] at (current~page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\l__dnd_background_name_tl - verso}};
+      \end{tikzpicture}
     }
 }
 
@@ -69,7 +84,7 @@
 
 % Left-even page footer
 \fancyfoot[LE]{%
-    \DndFontFooter \leftmark
+    \skip_horizontal:N \l__dnd_footer_inset_skip \DndFontFooter \leftmark
     \begin{tikzpicture}[remember~picture,overlay]
       \bool_if:NT \l__dnd_show_footer_scroll_bool {
         \bool_if:NTF \l__dnd_highcontrast_bool {
@@ -91,13 +106,17 @@
           }
         }
       }
-      \node[inner~sep=0pt,anchor=south,xshift=.28in,yshift=.39in] at (current~page.south~west) {\DndFontPageNumber \thepage};
+      \bool_if:NTF \l__dnd_eberron_mode_bool {
+        \node[inner~sep=0pt,anchor=south,xshift=.51in,yshift=.33in] at (current~page.south~west) {\DndFontPageNumber \thepage};
+      }{
+        \node[inner~sep=0pt,anchor=south,xshift=.28in,yshift=.39in] at (current~page.south~west) {\DndFontPageNumber \thepage};
+      }
     \end{tikzpicture}
   }
 
 % Right-odd page footer
 \fancyfoot[RO]{%
-    \DndFontFooter \leftmark
+    \DndFontFooter \leftmark \skip_horizontal:N \l__dnd_footer_inset_skip
     \begin{tikzpicture}[remember~picture,overlay]
       \bool_if:NT \l__dnd_show_footer_scroll_bool {
         \bool_if:NTF \l__dnd_highcontrast_bool {
@@ -119,7 +138,11 @@
           }
         }
       }
-      \node[inner~sep=0pt,anchor=south,xshift=-.28in,yshift=.39in] at (current~page.south~east) {\DndFontPageNumber \thepage};
+      \bool_if:NTF \l__dnd_eberron_mode_bool {
+        \node[inner~sep=0pt,anchor=south,xshift=-.51in,yshift=.33in] at (current~page.south~east) {\DndFontPageNumber \thepage};
+      }{
+        \node[inner~sep=0pt,anchor=south,xshift=-.28in,yshift=.39in] at (current~page.south~east) {\DndFontPageNumber \thepage};
+      }
     \end{tikzpicture}
   }
 
