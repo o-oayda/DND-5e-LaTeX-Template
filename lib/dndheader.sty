@@ -52,7 +52,7 @@
   \bool_if:NT \l__dnd_show_background_bool
     {
       \begin{tikzpicture}[remember~picture,overlay]
-        \node[inner~sep=0pt] at (current~page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\l__dnd_background_name_tl - recto}};
+        \node[inner~sep=0pt] at (current~page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\printpaperimage}};
       \end{tikzpicture}
     }
 }
