@@ -237,7 +237,21 @@ The |DndSidebar| is not breakable and is best used floated toward a page corner 
 
 \begin{DndSidebar}[float=!b]{Behold the DndSidebar!}
   The |DndSidebar| is used as a sidebar. It does not break over columns and is best used with a figure environment to float it to one corner of the page where the surrounding text can then flow around it.
+
+  Use the |\tocside{title}| command to create an entry in the table of contents, if you want.
 \end{DndSidebar}
+
+You can represent an attached note (for example, for notes from Bigby or Mordenkainen) using the |DndAside| environment.
+
+\begin{DndAside}
+  This is the part where I give you a little extra information or make a witty comment to keep you entertained while you read.
+\end{DndAside}
+
+The |DndQuotation| environment goes a little further, offering the option of comment attribution, and tilts the note at a slight angle.
+
+\begin{DndQuotation}{The Author}
+  This is the part where I give you a little extra information or make a witty comment to keep you entertained while you read.
+\end{DndQuotation}
 
 \section{Tables}
 

@@ -232,7 +232,7 @@ The module has three environments for setting text apart so that it is drawn to 
 \end{DndReadAloud}
 
 \section{As an Aside}
-The other two environments are the |DndComment| and the |DndSidebar|. The |DndComment| is breakable and can safely be used inline in the text.
+The next two environments are the |DndComment| and the |DndSidebar|. The |DndComment| is breakable and can safely be used inline in the text.
 
 \begin{DndComment}{This Is a Comment Box!}
   A |DndComment| is a box for minimal highlighting of text. It lacks the ornamentation of |DndSidebar|, but it can handle being broken over a column.
@@ -247,9 +247,21 @@ The |DndSidebar| is not breakable and is best used floated toward a page corner 
   Use the |\tocside{title}| command to create an entry in the table of contents, if you want.
 \end{DndSidebar}
 
-\section{Tables}
+You can represent an attached note (for example, for notes from Bigby or Mordenkainen) using the |DndAside| environment.
 
-\subsection{Regular Table}
+\begin{DndAside}
+  This is the part where I give you a little extra information or make a witty comment to keep you entertained while you read.
+\end{DndAside}
+
+The |DndQuotation| environment goes a little further, offering the option of comment attribution, and tilts the note at a slight angle.
+
+\begin{DndQuotation}{The Author}
+  This is the part where I give you a little extra information or make a witty comment to keep you entertained while you read.
+\end{DndQuotation}
+
+\chapter{Tables}
+
+\section{Regular Table}
 The |DndTable| colors the even rows and is set to the width of a line by default.
 
 \begin{DndTable}[header=Nice Table]{XX}
@@ -265,7 +277,7 @@ to prevent this, add ``bold=false'' to the optional parameters, for example:
 [header=Nice Table,bold=false]
 \end{lstlisting}
 
-\subsection{Alternate Table Background}
+\section{Alternate Table Background}
 
 The |DndAltTable| allows tables that have a blank "header" line followed
 by alternating theme color and white background, as per some of the sourcebooks.
@@ -278,7 +290,7 @@ by alternating theme color and white background, as per some of the sourcebooks.
     Some value  & Some value \\
 \end{DndAltTable}
 
-\subsection{Split Tables}
+\section{Split Tables}
 Temporarily adding a column using |multicols| can
 be used to achieve the effect of a split column
 table.
@@ -319,7 +331,7 @@ This achieves the following effect:
 \end{DndAltTable}
 \end{multicols}
 
-\subsection{Long Table that Spans Pages}
+\section{Long Table that Spans Pages}
 
 The |dndlongtable| allows table that can span multiple pages. The current
 version is configured to do a two-column table.
@@ -405,7 +417,7 @@ Yields a three-column table:
     100 & You win a magic item or an expensive piece of classic artwork. & 1000 gp \\
 \end{dndlongtable}
 
-\subsection{Tables with Footnotes}
+\section{Tables with Footnotes}
 Surrounding one of the existing table types with a |minipage| section
 allows footnotes declared in the table to appear at the end of the table,
 rather than in the page footer as normal. For a regularly sized table
@@ -432,7 +444,7 @@ To achieve the following effect:
   \end{DndTable}
 \end{minipage}
 
-\subsection{Ornamented Tables}
+\section{Ornamented Tables}
 The |ornamentedtabular| allows tables similar to those used for spellcasters
 (see over page).
 
