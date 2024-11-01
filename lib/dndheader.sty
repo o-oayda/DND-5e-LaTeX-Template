@@ -7,6 +7,7 @@
   {
 \RequirePackage {fancyhdr} % Adaptation of the footers
 
+
 % Setup for custom footer
 \pagestyle {fancy}
 
@@ -35,6 +36,12 @@
 \newcommand{\paperimage}{img/paper}
 \newcommand{\SetPaperImage}[1]{%
   \renewcommand{\paperimage}{#1}}
+
+\newcommand{\SectionBG}{img/section-part-default.jpg}
+\newcommand{\SetSectionBG}[1]{% 
+  \renewcommand{\SectionBG}{#1}}
+
+% Create a command to hold the current part background image
 
 \newcommand{\printpaperimage}{\paperimage}
 \skip_new:N \l__dnd_footer_inset_skip
@@ -69,15 +76,14 @@
 \fancypagestyle{part}{
   \bool_if:NT \l__dnd_show_background_bool
   {
-    \fancyhf{} % clear all headers and footers
+    \fancyhf{} 
     \fancyhead{
-        \begin{tikzpicture}[remember~picture,overlay]
-            % TODO: Make the "section part" background image configurable, using hard-coded default for now.
-            \node[inner~sep=0pt] at (current~page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{img/section-part-default}};
-            \node[inner~sep=0pt,anchor=north] at (current~page.north) {\includegraphics[width=\paperwidth]{img/header-part-circ}};
-            \node[inner~sep=0pt,anchor=north~west] at (current~page.north~west) {\includegraphics[width=.5\paperwidth]{img/header-part}};
-            \node[xscale=-1, inner~sep=0pt, anchor=north~west] at (current~page.north~east) {\includegraphics[width=.5\paperwidth]{img/header-part}};
-        \end{tikzpicture}
+      \begin{tikzpicture}[remember~picture,overlay]
+        \node[inner~sep=0pt] at (current~page.center) {\includegraphics[width=\paperwidth,height=\paperheight]{\SectionBG}};
+        \node[inner~sep=0pt,anchor=north] at (current~page.north) {\includegraphics[width=\paperwidth]{img/header-part-circ}};
+        \node[inner~sep=0pt,anchor=north~west] at (current~page.north~west) {\includegraphics[width=.5\paperwidth]{img/header-part}};
+        \node[xscale=-1, inner~sep=0pt, anchor=north~west] at (current~page.north~east) {\includegraphics[width=.5\paperwidth]{img/header-part}};
+      \end{tikzpicture}
     }
   }
 }
@@ -153,3 +159,5 @@
 }
 
 }
+
+\ExplSyntaxOff
