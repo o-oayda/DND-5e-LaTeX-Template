@@ -255,6 +255,34 @@
     \end{description}
   }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Special command for psioncs --- ooayda 12/03/24; 23/04/24
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% #1 - Name
+% #2 - Level and discipline
+% #3 - Manifesting time
+% #4 - Range
+% #5 - Costs (MB and PD)
+% #6 - Duration
+% #7 - Requirements
+\NewDocumentCommand {\DndPowerHeader} { m m m m m m m }
+  {
+    \DndItemHeader {#1} {#2}
+
+    \begin{description}
+      [
+        nosep,
+        labelsep = \l__dnd_space_dim,
+        after    = { \vspace{4pt plus 1pt minus 1pt} },
+      ]
+      \item [ \powercastingtimename : ] #3
+      \item [ \powerrangename       : ] #4
+      \item [ \powercomponentsname  : ] #5
+      \item [ \powerdurationname    : ] #6
+      \item [ \powerrequirementsname    : ] #7
+    \end{description}
+  }
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Map Areas and their References
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
